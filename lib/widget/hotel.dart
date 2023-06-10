@@ -158,7 +158,7 @@ class kamar extends StatelessWidget {
                 Icon(Icons.update, color: 'BCBCBC'.toColor(), size: 15),
                 SizedBox(width: 5),
                 Text(
-                  '1 Malam',
+                  '1 Night',
                   style: GoogleFonts.poppins()
                       .copyWith(fontSize: 9, color: '9C9C9C'.toColor()),
                 ),

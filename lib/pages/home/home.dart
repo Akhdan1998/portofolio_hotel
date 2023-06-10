@@ -12,6 +12,8 @@ import 'package:supercharged/supercharged.dart';
 import 'package:story/story.dart';
 import 'package:story/story_image.dart';
 
+import '../../widget/destinasiwisata.dart';
+
 class home extends StatefulWidget {
   @override
   State<home> createState() => _homeState();
@@ -418,9 +420,9 @@ class _homeState extends State<home> with TickerProviderStateMixin {
               child: Row(
                 children: [
                   SizedBox(width: 16),
-                  destination(),
+                  destinationwisata(),
                   SizedBox(width: 15),
-                  destination(),
+                  destinationwisata(),
                   SizedBox(width: 16),
                 ],
               ),

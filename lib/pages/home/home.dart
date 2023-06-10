@@ -5,6 +5,7 @@ import 'package:portofolio_hotel/story/story_circle.dart';
 import 'package:portofolio_hotel/story/story_model.dart';
 import 'package:portofolio_hotel/story/storypage.dart';
 import 'package:portofolio_hotel/pages/home/user_model.dart';
+import 'package:portofolio_hotel/widget/artikel.dart';
 import 'package:portofolio_hotel/widget/bestdestination.dart';
 import 'package:portofolio_hotel/widget/recommendedHotel.dart';
 import 'package:supercharged/supercharged.dart';
@@ -83,6 +84,8 @@ class _homeState extends State<home> with TickerProviderStateMixin {
         ),
       ),
       body: SingleChildScrollView(
+        clipBehavior: Clip.hardEdge,
+        physics: ClampingScrollPhysics(),
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
@@ -362,6 +365,47 @@ class _homeState extends State<home> with TickerProviderStateMixin {
               padding: EdgeInsets.only(left: 16),
               child: Text(
                 'Best Destination Hotel',
+                style: GoogleFonts.poppins().copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: '4D4B4B'.toColor(),
+                    fontSize: 12),
+              ),
+            ),
+            SizedBox(height: 8),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SizedBox(width: 16),
+                  destination(),
+                  SizedBox(width: 15),
+                  destination(),
+                  SizedBox(width: 16),
+                ],
+              ),
+            ),
+            SizedBox(height: 8),
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(left: 16),
+              child: Text(
+                'Hot Articles',
+                style: GoogleFonts.poppins().copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: '4D4B4B'.toColor(),
+                    fontSize: 12),
+              ),
+            ),
+            SizedBox(height: 8),
+            artikel(),
+            SizedBox(height: 8),
+            artikel(),
+            SizedBox(height: 8),
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(left: 16),
+              child: Text(
+                'Tourist Destination',
                 style: GoogleFonts.poppins().copyWith(
                     fontWeight: FontWeight.bold,
                     color: '4D4B4B'.toColor(),

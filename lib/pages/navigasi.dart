@@ -5,7 +5,7 @@ import 'package:portofolio_hotel/pages/profil/profil.dart';
 import 'package:portofolio_hotel/pages/reservasi/reservasi.dart';
 import 'package:supercharged/supercharged.dart';
 
-import 'pages/home/home.dart';
+import 'home/home.dart';
 
 class navigasi extends StatefulWidget {
   @override

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portofolio_hotel/pages/home/home.dart';
-import 'package:portofolio_hotel/navigasi.dart';
+import 'package:portofolio_hotel/pages/navigasi.dart';
 import 'package:portofolio_hotel/pages/identitas/signup.dart';
 import 'package:supercharged/supercharged.dart';
 

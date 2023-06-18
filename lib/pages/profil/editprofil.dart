@@ -13,6 +13,7 @@ class _editprofilState extends State<editprofil> {
   final job = TextEditingController();
   final email = TextEditingController();
   bool _obsecureText = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +33,10 @@ class _editprofilState extends State<editprofil> {
           child: Text(
             'Edit Profile',
             style: GoogleFonts.poppins().copyWith(
-                fontSize: 15, color: Colors.white, fontWeight: FontWeight.bold),
+              fontSize: 16,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
@@ -152,14 +156,14 @@ class _editprofilState extends State<editprofil> {
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       suffixIcon: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _obsecureText = !_obsecureText;
-                            });
-                          },
-                          child: Icon(_obsecureText
-                      ? Icons.visibility
-                          : Icons.visibility_off),
+                        onTap: () {
+                          setState(() {
+                            _obsecureText = !_obsecureText;
+                          });
+                        },
+                        child: Icon(_obsecureText
+                            ? Icons.visibility
+                            : Icons.visibility_off),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(5)),

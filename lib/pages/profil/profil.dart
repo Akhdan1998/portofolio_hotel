@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:supercharged/supercharged.dart';
 
 import 'editprofil.dart';
+import 'kupon.dart';
 import 'media.dart';
 
 class profil extends StatefulWidget {
@@ -392,7 +393,9 @@ class _profilState extends State<profil> {
                       thickness: 1,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(kupon());
+                      },
                       child: Container(
                         color: Colors.white,
                         child: Row(

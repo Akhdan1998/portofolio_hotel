@@ -4,6 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:supercharged/supercharged.dart';
 
+import 'editprofil.dart';
+import 'media.dart';
+
 class profil extends StatefulWidget {
   @override
   State<profil> createState() => _profilState();
@@ -160,7 +163,9 @@ class _profilState extends State<profil> {
                                         color: Colors.black),
                                   ),
                                   GestureDetector(
-                                    onTap: () {},
+                                    onTap: () {
+                                      Get.to(editprofil());
+                                    },
                                     child: Icon(
                                       Icons.edit_note,
                                       color: '4DA934'.toColor(),
@@ -287,7 +292,9 @@ class _profilState extends State<profil> {
                 child: Column(
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(media());
+                      },
                       child: Container(
                         color: Colors.white,
                         child: Row(

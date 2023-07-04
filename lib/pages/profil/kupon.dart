@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:clipboard/clipboard.dart';
+
 class kupon extends StatefulWidget {
   @override
   State<kupon> createState() => _kuponState();
@@ -11,6 +12,7 @@ class kupon extends StatefulWidget {
 
 class _kuponState extends State<kupon> {
   String kodecashback = "TIX1998";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -235,7 +237,8 @@ class _kuponState extends State<kupon> {
                         ),
                         color: '4DA934'.toColor(),
                       ),
-                      padding: EdgeInsets.only(left: 7, right: 7, top: 24, bottom: 24),
+                      padding: EdgeInsets.only(
+                          left: 7, right: 7, top: 24, bottom: 24),
                       child: Column(
                         children: [
                           Text(
@@ -372,7 +375,8 @@ class _kuponState extends State<kupon> {
                         ),
                         color: '4DA934'.toColor(),
                       ),
-                      padding: EdgeInsets.only(left: 11.5, right: 11.5, top: 24, bottom: 24),
+                      padding: EdgeInsets.only(
+                          left: 11.5, right: 11.5, top: 24, bottom: 24),
                       child: Column(
                         children: [
                           Text(

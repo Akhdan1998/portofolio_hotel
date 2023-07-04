@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:portofolio_hotel/pages/profil/wallet.dart';
 import 'package:supercharged/supercharged.dart';
 
 import 'editprofil.dart';
@@ -200,8 +201,11 @@ class _profilState extends State<profil> {
                                           borderRadius:
                                               BorderRadius.circular(50),
                                         ),
-                                        child:
-                                            Icon(Icons.attach_money, size: 10, color: Colors.white,),
+                                        child: Icon(
+                                          Icons.attach_money,
+                                          size: 10,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                       SizedBox(width: 10),
                                       Text(
@@ -251,7 +255,11 @@ class _profilState extends State<profil> {
                                     color: '4DA934'.toColor(),
                                     borderRadius: BorderRadius.circular(50),
                                   ),
-                                  child: Icon(Icons.sell, size: 10, color: Colors.white,),
+                                  child: Icon(
+                                    Icons.sell,
+                                    size: 10,
+                                    color: Colors.white,
+                                  ),
                                 ),
                                 SizedBox(width: 10),
                                 Text(
@@ -344,7 +352,9 @@ class _profilState extends State<profil> {
                       thickness: 1,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(wallet());
+                      },
                       child: Container(
                         color: Colors.white,
                         child: Row(

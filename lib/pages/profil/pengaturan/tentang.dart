@@ -3,12 +3,12 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:supercharged/supercharged.dart';
 
-class hp extends StatefulWidget {
+class tentang extends StatefulWidget {
   @override
-  State<hp> createState() => _hpState();
+  State<tentang> createState() => _tentangState();
 }
 
-class _hpState extends State<hp> {
+class _tentangState extends State<tentang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +26,7 @@ class _hpState extends State<hp> {
         title: Container(
           alignment: Alignment.centerLeft,
           child: Text(
-            'Email & No Settings Mobile Phone',
+            'About HotelPedia',
             style: GoogleFonts.poppins().copyWith(
               fontSize: 16,
               color: Colors.white,
@@ -51,70 +51,39 @@ class _hpState extends State<hp> {
           ),
           Container(
             padding: EdgeInsets.only(left: 30, right: 30),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Wrap(
+              runSpacing: 15,
               children: [
                 Text(
-                  'Phone Number',
-                  style: GoogleFonts.poppins().copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                    color: '4A4A4A'.toColor(),
-                  ),
-                ),
-                SizedBox(height: 7),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '081290763984',
-                      style: GoogleFonts.poppins().copyWith(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 12,
-                        color: '4A4A4A'.toColor(),
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'Verified',
-                          style: GoogleFonts.poppins().copyWith(
-                            fontWeight: FontWeight.w300,
-                            fontSize: 12,
-                            color: '39AA3D'.toColor(),
-                          ),
-                        ),
-                        SizedBox(width: 5),
-                        Icon(Icons.verified, color: '39AA3D'.toColor(), size: 20,),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 21),
-                Text(
-                  'Email',
-                  style: GoogleFonts.poppins().copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                    color: '4A4A4A'.toColor(),
-                  ),
-                ),
-                SizedBox(height: 5),
-                Text(
-                  'akhdanhabibie192@gmail.com',
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut vitae mattis consectetur. Venenatis at maecenas augue tempus, urna, est natoque in. Risus egestas pretium, enim varius rhoncus mus accumsan bibendum.',
                   style: GoogleFonts.poppins().copyWith(
                     fontWeight: FontWeight.w300,
-                    fontSize: 12,
+                    fontSize: 13,
                     color: '4A4A4A'.toColor(),
                   ),
                 ),
-                SizedBox(height: 3),
                 Text(
-                  'All your transaction & account security information will be sent to this email.',
+                  'In vulputate facilisis turpis consequat pellentesque suspendisse tincidunt vel. Nisl nibh sed urna, egestas cras ullamcorper at dui sit. Mi nunc odio ultrices egestas ac. In ultricies phasellus vel neque consequat, ut vitae. Urna eu, adipiscing egestas laoreet ac fermentum. Volutpat accumsan cursus sed ipsum. Sagittis luctus diam tincidunt imperdiet dui tincidunt. Id non laoreet tempus eu.',
                   style: GoogleFonts.poppins().copyWith(
                     fontWeight: FontWeight.w300,
-                    fontSize: 11,
-                    color: '9E9E9E'.toColor(),
+                    fontSize: 13,
+                    color: '4A4A4A'.toColor(),
+                  ),
+                ),
+                Text(
+                  'At facilisis est accumsan adipiscing elit. Morbi velit, pellentesque varius amet tellus elit nec massa. Habitant mauris, nisi bibendum fermentum lectus sapien, quis velit. Ut amet cras ut consectetur amet, vestibulum blandit dictum.',
+                  style: GoogleFonts.poppins().copyWith(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 13,
+                    color: '4A4A4A'.toColor(),
+                  ),
+                ),
+                Text(
+                  'Aenean auctor ultricies feugiat faucibus pulvinar vel consectetur. Sagittis, scelerisque id at amet, eget. Nibh nulla a est dui pellentesque lectus leo justo. Risus facilisi id lectus at euismod proin. Non pretium ornare hac sit. Nullam semper suspendisse fames in donec leo turpis sed eu. Orci adipiscing in amet tellus proin pellentesque. Lobortis lectus consequat tempus vel ipsum ultrices sed tortor. Elementum eget sagi.',
+                  style: GoogleFonts.poppins().copyWith(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 13,
+                    color: '4A4A4A'.toColor(),
                   ),
                 ),
               ],

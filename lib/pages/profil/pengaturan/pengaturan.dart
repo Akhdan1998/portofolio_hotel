@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portofolio_hotel/pages/profil/pengaturan/pengaturan%20notifikasi.dart';
+import 'package:portofolio_hotel/pages/profil/pengaturan/syarat.dart';
+import 'package:portofolio_hotel/pages/profil/pengaturan/tentang.dart';
 import 'package:supercharged/supercharged.dart';
 
 import 'hp.dart';
+import 'kebijakan.dart';
 
 class pengaturan extends StatefulWidget {
   const pengaturan({super.key});
@@ -303,7 +306,9 @@ class _pengaturanState extends State<pengaturan> {
                   ),
                   SizedBox(height: 12),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(tentang());
+                    },
                     child: Container(
                       color: Colors.white,
                       child: Row(
@@ -330,7 +335,9 @@ class _pengaturanState extends State<pengaturan> {
                     color: '4A4A4A'.toColor(),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(kebijakan());
+                    },
                     child: Container(
                       color: Colors.white,
                       child: Row(
@@ -357,7 +364,9 @@ class _pengaturanState extends State<pengaturan> {
                     color: '4A4A4A'.toColor(),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(syarat());
+                    },
                     child: Container(
                       color: Colors.white,
                       child: Row(

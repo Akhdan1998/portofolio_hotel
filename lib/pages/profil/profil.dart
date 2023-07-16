@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:portofolio_hotel/pages/profil/pengaturan/pengaturan.dart';
 import 'package:portofolio_hotel/pages/profil/wallet.dart';
 import 'package:supercharged/supercharged.dart';
 
@@ -44,7 +45,12 @@ class _profilState extends State<profil> {
                               fontWeight: FontWeight.bold,
                               color: Colors.white),
                         ),
-                        Icon(Icons.settings, color: Colors.white),
+                        IconButton(
+                          onPressed: () {
+                            Get.to(pengaturan());
+                          },
+                          icon: Icon(Icons.settings, color: Colors.white),
+                        ),
                       ],
                     ),
                   ),

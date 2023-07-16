@@ -145,7 +145,7 @@ class _pengaturannotifikasiState extends State<pengaturannotifikasi> {
               ),
               Divider(
                 thickness: 5,
-                height: 40,
+                height: 50,
               ),
               Container(
                 padding: EdgeInsets.only(left: 30, right: 30),
@@ -231,7 +231,7 @@ class _pengaturannotifikasiState extends State<pengaturannotifikasi> {
               ),
               Divider(
                 thickness: 5,
-                height: 40,
+                height: 50,
               ),
               Container(
                 padding: EdgeInsets.only(left: 30, right: 30),
@@ -317,7 +317,7 @@ class _pengaturannotifikasiState extends State<pengaturannotifikasi> {
               ),
               Divider(
                 thickness: 5,
-                height: 40,
+                height: 50,
               ),
             ],
           ),

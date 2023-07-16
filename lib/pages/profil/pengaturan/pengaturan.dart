@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portofolio_hotel/pages/profil/pengaturan/pengaturan%20notifikasi.dart';
 import 'package:supercharged/supercharged.dart';
 
+import 'hp.dart';
+
 class pengaturan extends StatefulWidget {
   const pengaturan({super.key});
 
@@ -162,7 +164,7 @@ class _pengaturanState extends State<pengaturan> {
                     ],
                   ),
                   Divider(
-                    height: 30,
+                    height: 35,
                     color: '4A4A4A'.toColor(),
                   ),
                   GestureDetector(
@@ -191,7 +193,7 @@ class _pengaturanState extends State<pengaturan> {
                     ),
                   ),
                   Divider(
-                    height: 30,
+                    height: 35,
                     color: '4A4A4A'.toColor(),
                   ),
                   Row(
@@ -221,7 +223,7 @@ class _pengaturanState extends State<pengaturan> {
                     ],
                   ),
                   Divider(
-                    height: 30,
+                    height: 35,
                     color: '4A4A4A'.toColor(),
                   ),
                   SizedBox(height: 20),
@@ -235,7 +237,9 @@ class _pengaturanState extends State<pengaturan> {
                   ),
                   SizedBox(height: 12),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(hp());
+                    },
                     child: Container(
                       color: Colors.white,
                       child: Row(
@@ -258,7 +262,7 @@ class _pengaturanState extends State<pengaturan> {
                     ),
                   ),
                   Divider(
-                    height: 30,
+                    height: 35,
                     color: '4A4A4A'.toColor(),
                   ),
                   GestureDetector(
@@ -285,7 +289,7 @@ class _pengaturanState extends State<pengaturan> {
                     ),
                   ),
                   Divider(
-                    height: 30,
+                    height: 35,
                     color: '4A4A4A'.toColor(),
                   ),
                   SizedBox(height: 20),
@@ -322,7 +326,7 @@ class _pengaturanState extends State<pengaturan> {
                     ),
                   ),
                   Divider(
-                    height: 30,
+                    height: 35,
                     color: '4A4A4A'.toColor(),
                   ),
                   GestureDetector(
@@ -349,7 +353,7 @@ class _pengaturanState extends State<pengaturan> {
                     ),
                   ),
                   Divider(
-                    height: 30,
+                    height: 35,
                     color: '4A4A4A'.toColor(),
                   ),
                   GestureDetector(
@@ -376,7 +380,7 @@ class _pengaturanState extends State<pengaturan> {
                     ),
                   ),
                   Divider(
-                    height: 30,
+                    height: 35,
                     color: '4A4A4A'.toColor(),
                   ),
                   GestureDetector(
@@ -403,7 +407,7 @@ class _pengaturanState extends State<pengaturan> {
                     ),
                   ),
                   Divider(
-                    height: 30,
+                    height: 35,
                     color: '4A4A4A'.toColor(),
                   ),
                 ],

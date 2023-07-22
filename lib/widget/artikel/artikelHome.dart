@@ -3,12 +3,14 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:supercharged/supercharged.dart';
 
-class artikel extends StatefulWidget {
+import 'artikel.dart';
+
+class artikelHome extends StatefulWidget {
   @override
-  State<artikel> createState() => _artikelState();
+  State<artikelHome> createState() => _artikelHomeState();
 }
 
-class _artikelState extends State<artikel> {
+class _artikelHomeState extends State<artikelHome> {
   @override
   Widget build(BuildContext context) {
     return

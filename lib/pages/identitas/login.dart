@@ -49,7 +49,14 @@ class _loginState extends State<login> {
                   SizedBox(height: 5),
                   TextField(
                     keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(border: OutlineInputBorder()),
+                    cursorColor: '4DA934'.toColor(),
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                        borderSide: BorderSide(width: 1, color: '4DA934'.toColor()),
+                      ),
+                      border: OutlineInputBorder(),
+                    ),
                   ),
                   SizedBox(height: 10),
                   Text(
@@ -62,9 +69,16 @@ class _loginState extends State<login> {
                   SizedBox(height: 5),
                   TextField(
                     obscureText: true,
+                    keyboardType: TextInputType.emailAddress,
+                    cursorColor: '4DA934'.toColor(),
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        suffixIcon: Icon(Icons.visibility_off)),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                        borderSide: BorderSide(width: 1, color: '4DA934'.toColor()),
+                      ),
+                      border: OutlineInputBorder(),
+                      suffixIcon: Icon(Icons.visibility_off, color: '4DA934'.toColor()),
+                    ),
                   ),
                   SizedBox(height: 5),
                 ],

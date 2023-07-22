@@ -5,7 +5,8 @@ import 'package:portofolio_hotel/story/story_circle.dart';
 import 'package:portofolio_hotel/story/story_model.dart';
 import 'package:portofolio_hotel/story/storypage.dart';
 import 'package:portofolio_hotel/pages/home/user_model.dart';
-import 'package:portofolio_hotel/widget/artikel.dart';
+import 'package:portofolio_hotel/widget/artikel/artikel.dart';
+import 'package:portofolio_hotel/widget/artikel/artikelHome.dart';
 import 'package:portofolio_hotel/widget/bestdestination.dart';
 import 'package:portofolio_hotel/widget/recommendedHotel.dart';
 import 'package:supercharged/supercharged.dart';
@@ -276,7 +277,9 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                   ),
                   SizedBox(width: 20),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(artikel());
+                    },
                     child: Column(
                       children: [
                         Container(
@@ -399,9 +402,9 @@ class _homeState extends State<home> with TickerProviderStateMixin {
               ),
             ),
             SizedBox(height: 8),
-            artikel(),
+            artikelHome(),
             SizedBox(height: 8),
-            artikel(),
+            artikelHome(),
             SizedBox(height: 8),
             Container(
               alignment: Alignment.centerLeft,

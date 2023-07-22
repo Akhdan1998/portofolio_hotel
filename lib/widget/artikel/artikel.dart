@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portofolio_hotel/widget/artikel/artikelDetail.dart';
 import 'package:supercharged/supercharged.dart';
 
 import 'artikelHome.dart';
@@ -60,17 +61,26 @@ class _artikelState extends State<artikel> {
                 children: [
                   Container(
                     padding: EdgeInsets.only(left: 20, right: 20),
-                    child: TextField(
-                      cursorColor: '4DA934'.toColor(),
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                          borderSide: BorderSide(width: 1, color: '4DA934'.toColor()),
-                        ),
-                        border: OutlineInputBorder(),
-                        suffixIcon: Icon(
-                          Icons.search,
-                          color: '4DA934'.toColor(),
+                    child: Container(
+                      height: 50,
+                      color: 'F5F5F5'.toColor(),
+                      child: TextField(
+                        cursorColor: '4DA934'.toColor(),
+                        decoration: InputDecoration(
+                          hintText: 'What are you looking for?',
+                          hintStyle: GoogleFonts.poppins().copyWith(fontSize: 11, color: '919191'.toColor()),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide:
+                                BorderSide(width: 1, color: '4DA934'.toColor()),
+                          ),
+                          border: const OutlineInputBorder(
+                            borderSide: BorderSide.none
+                          ),
+                          suffixIcon: Icon(
+                            Icons.search,
+                            color: '4DA934'.toColor(),
+                          ),
                         ),
                       ),
                     ),
@@ -83,7 +93,9 @@ class _artikelState extends State<artikel> {
                       children: [
                         SizedBox(width: 20),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(artikelDetail());
+                          },
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -110,7 +122,8 @@ class _artikelState extends State<artikel> {
                                     height: 5,
                                     decoration: BoxDecoration(
                                         color: '919191'.toColor(),
-                                        borderRadius: BorderRadius.circular(50)),
+                                        borderRadius:
+                                            BorderRadius.circular(50)),
                                   ),
                                   SizedBox(width: 6),
                                   Text(
@@ -127,7 +140,9 @@ class _artikelState extends State<artikel> {
                         ),
                         SizedBox(width: 15),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(artikelDetail());
+                          },
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -146,7 +161,7 @@ class _artikelState extends State<artikel> {
                                     style: GoogleFonts.poppins().copyWith(
                                         fontSize: 10,
                                         color: '919191'.toColor(),
-                                        fontWeight: FontWeight.bold),
+                                        fontWeight: FontWeight.w300),
                                   ),
                                   SizedBox(width: 6),
                                   Container(
@@ -154,7 +169,8 @@ class _artikelState extends State<artikel> {
                                     height: 5,
                                     decoration: BoxDecoration(
                                         color: '919191'.toColor(),
-                                        borderRadius: BorderRadius.circular(50)),
+                                        borderRadius:
+                                            BorderRadius.circular(50)),
                                   ),
                                   SizedBox(width: 6),
                                   Text(
@@ -162,7 +178,7 @@ class _artikelState extends State<artikel> {
                                     style: GoogleFonts.poppins().copyWith(
                                         fontSize: 10,
                                         color: '919191'.toColor(),
-                                        fontWeight: FontWeight.bold),
+                                        fontWeight: FontWeight.w300),
                                   ),
                                 ],
                               ),
@@ -193,8 +209,6 @@ class _artikelState extends State<artikel> {
                 ],
               ),
             ),
-
-
           ],
         ),
       ),

@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:supercharged/supercharged.dart';
 
 import 'artikel.dart';
+import 'artikelDetail.dart';
 
 class artikelHome extends StatefulWidget {
   @override
@@ -15,7 +16,9 @@ class _artikelHomeState extends State<artikelHome> {
   Widget build(BuildContext context) {
     return
       GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Get.to(artikelDetail());
+        },
         child: Container(
           color: Colors.white,
           padding: EdgeInsets.only(left: 16, right: 16),

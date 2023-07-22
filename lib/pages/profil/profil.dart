@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portofolio_hotel/pages/profil/profil%20penumpang/passengerProfile.dart';
+import 'package:supercharged/supercharged.dart';
 import 'package:intl/intl.dart';
 import 'package:portofolio_hotel/pages/profil/pengaturan/pengaturan.dart';
 import 'package:portofolio_hotel/pages/profil/wallet.dart';
-import 'package:supercharged/supercharged.dart';
 
 import 'editprofil.dart';
 import 'kupon.dart';
@@ -460,7 +461,9 @@ class _profilState extends State<profil> {
                       thickness: 1,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(PassengerProfile());
+                      },
                       child: Container(
                         color: Colors.white,
                         child: Row(
@@ -485,7 +488,7 @@ class _profilState extends State<profil> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Customer Profile',
+                                  'Passenger Profile',
                                   style: GoogleFonts.poppins().copyWith(
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold,

@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portofolio_hotel/pages/profil/profil.dart';
 import 'package:supercharged/supercharged.dart';
+import 'package:image_picker/image_picker.dart';
 
 class editprofil extends StatefulWidget {
   @override
@@ -13,6 +18,17 @@ class _editprofilState extends State<editprofil> {
   final job = TextEditingController();
   final email = TextEditingController();
   bool _obsecureText = true;
+
+  File? _image;
+
+  Future getImage() async {
+    final Image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (Image == null) return;
+    final imageTemporary = File(Image.path);
+    setState(() {
+      this._image = imageTemporary;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,36 +75,52 @@ class _editprofilState extends State<editprofil> {
             Stack(
               children: [
                 GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    height: 180,
+                  onTap: () {
+                    getImage();
+                  },
+                  child: _image != null
+                      ? Container(
+                          width: 180,
+                          height: 180,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: FileImage(_image!),
+                            ),
+                          ),
+                        )
+                      : Container(
                     width: 180,
+                    height: 180,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        image: DecorationImage(
-                            image: AssetImage('assets/akhdan.jpeg'),
-                            fit: BoxFit.cover)),
+                      borderRadius: BorderRadius.circular(100),
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('assets/foto.png'),
+                      ),
+                    ),
                   ),
                 ),
                 Positioned(
-                  top: 140,
-                  left: 130,
-                  child: Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: '4DA934'.toColor(),
-                    ),
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                        top: 140,
+                        left: 130,
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: '4DA934'.toColor(),
+                          ),
+                          child: Icon(
+                            Icons.edit,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
               ],
             ),
-            SizedBox(height: 90),
+            SizedBox(height: 70),
             Container(
               padding: EdgeInsets.only(left: 30, right: 30),
               child: Column(
@@ -97,12 +129,13 @@ class _editprofilState extends State<editprofil> {
                   Text(
                     'Job',
                     style: GoogleFonts.poppins().copyWith(
-                      fontSize: 13,
-                      color: '818181'.toColor(),
-                    ),
+                        fontWeight: FontWeight.w300,
+                        fontSize: 15,
+                        color: '818181'.toColor()),
                   ),
                   SizedBox(height: 5),
                   TextField(
+                    cursorColor: '4DA934'.toColor(),
                     controller: job,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
@@ -114,19 +147,20 @@ class _editprofilState extends State<editprofil> {
                       border: OutlineInputBorder(
                         borderSide: BorderSide(),
                       ),
-                      hintText: 'Ex: Programmer',
+                      hintText: 'Proggrammer',
                     ),
                   ),
                   SizedBox(height: 12),
                   Text(
                     'Email Address',
                     style: GoogleFonts.poppins().copyWith(
-                      fontSize: 13,
-                      color: '818181'.toColor(),
-                    ),
+                        fontWeight: FontWeight.w300,
+                        fontSize: 15,
+                        color: '818181'.toColor()),
                   ),
                   SizedBox(height: 5),
                   TextField(
+                    cursorColor: '4DA934'.toColor(),
                     controller: email,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
@@ -138,42 +172,44 @@ class _editprofilState extends State<editprofil> {
                       border: OutlineInputBorder(
                         borderSide: BorderSide(),
                       ),
-                      hintText: 'Ex: akhdanhabibie@gmail.com',
+                      hintText: 'akhdanhabibie192@gmail.com',
                     ),
                   ),
                   SizedBox(height: 12),
                   Text(
                     'Password',
                     style: GoogleFonts.poppins().copyWith(
-                      fontSize: 13,
-                      color: '818181'.toColor(),
-                    ),
+                        fontWeight: FontWeight.w300,
+                        fontSize: 15,
+                        color: '818181'.toColor()),
                   ),
                   SizedBox(height: 5),
                   TextField(
                     controller: pass,
                     obscureText: _obsecureText,
-                    keyboardType: TextInputType.emailAddress,
+                    cursorColor: '4DA934'.toColor(),
                     decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                        borderSide: BorderSide(
+                          width: 1,
+                          color: '4DA934'.toColor(),
+                        ),
+                      ),
+                      border: OutlineInputBorder(),
                       suffixIcon: GestureDetector(
                         onTap: () {
                           setState(() {
                             _obsecureText = !_obsecureText;
                           });
                         },
-                        child: Icon(_obsecureText
-                            ? Icons.visibility
-                            : Icons.visibility_off),
+                        child: Icon(
+                          _obsecureText
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: '4DA934'.toColor(),
+                        ),
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        borderSide:
-                            BorderSide(width: 1, color: '4DA934'.toColor()),
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(),
-                      ),
-                      hintText: 'Ex: Password',
                     ),
                   ),
                 ],
@@ -200,7 +236,18 @@ class _editprofilState extends State<editprofil> {
           style: ElevatedButton.styleFrom(
             backgroundColor: '4DA934'.toColor(),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Get.back();
+            Fluttertoast.showToast(
+                msg: "Updated profile",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 3,
+                backgroundColor: '4DA934'.toColor(),
+                textColor: Colors.white,
+                fontSize: 16.0
+            );
+          },
           child: Text(
             'Save Profile',
             style: GoogleFonts.poppins().copyWith(

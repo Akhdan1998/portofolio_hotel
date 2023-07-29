@@ -56,35 +56,34 @@ class _homeState extends State<home> with TickerProviderStateMixin {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: '4DA934'.toColor(),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-              onTap: () {
-                if (_isPlay == false) {
-                  _controller.forward();
-                  _isPlay = true;
-                } else {
-                  _controller.reverse();
-                  _isPlay = true;
-                }
-              },
-              child: AnimatedIcon(
-                icon: AnimatedIcons.menu_home,
-                progress: _controller,
-                size: 30,
-              ),
-            ),
-            Image.asset('assets/hotelpedia.png', scale: 3.5),
-            GestureDetector(
-              onTap: () {},
-              child: Icon(
-                Icons.notifications,
-                size: 27,
-              ),
-            ),
-          ],
+        leading: IconButton(
+          onPressed: () {
+            if (_isPlay == false) {
+              _controller.forward();
+              _isPlay = true;
+            } else {
+              _controller.reverse();
+              _isPlay = true;
+            }
+          },
+          icon: AnimatedIcon(
+            icon: AnimatedIcons.menu_home,
+            progress: _controller,
+            size: 30,
+          ),
         ),
+        title: Center(
+          child: Image.asset('assets/hotelpedia.png', scale: 3.5),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.notifications,
+              size: 27,
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         clipBehavior: Clip.hardEdge,
@@ -102,6 +101,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30)),
                 child: TextField(
+                  cursorColor: '4DA934'.toColor(),
                   decoration: InputDecoration(
                     hintText: 'Find Your Hotel',
                     hintStyle: GoogleFonts.poppins()
@@ -110,6 +110,13 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                     // contentPadding: EdgeInsets.only(left: 20, bottom: 20),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      borderSide: BorderSide(
+                        width: 1,
+                        color: '4DA934'.toColor(),
+                      ),
                     ),
                   ),
                 ),

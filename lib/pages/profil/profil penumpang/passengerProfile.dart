@@ -361,7 +361,6 @@ class _PassengerProfileState extends State<PassengerProfile> {
         ],
       ),
       bottomNavigationBar: Container(
-        // height: 50,
         padding: EdgeInsets.only(left: 25, right: 25, top: 10, bottom: 20),
         decoration: BoxDecoration(
           color: Colors.white,

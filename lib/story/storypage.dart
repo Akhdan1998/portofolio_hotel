@@ -5,7 +5,7 @@ import 'package:portofolio_hotel/story/story_1.dart';
 import 'package:portofolio_hotel/story/story_2.dart';
 import 'package:portofolio_hotel/story/story_3.dart';
 import 'package:portofolio_hotel/story/story_bars.dart';
-
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 class StoryPage extends StatefulWidget {
   @override
   State<StoryPage> createState() => _StoryPageState();

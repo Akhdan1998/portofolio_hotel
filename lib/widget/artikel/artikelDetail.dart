@@ -26,13 +26,17 @@ class _artikelDetailState extends State<artikelDetail> {
                   children: [
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.only(left: 20, top: 50, right: 20),
+                      padding: EdgeInsets.only(left: 20, top: 50),
                       height: 150,
-                      width: MediaQuery.of(context).size.width,
                       color: '4DA934'.toColor(),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          IconButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            icon: Icon(Icons.arrow_back, color: Colors.white),
+                          ),
                           Text(
                             'Article Detail',
                             style: GoogleFonts.poppins().copyWith(
@@ -40,15 +44,10 @@ class _artikelDetailState extends State<artikelDetail> {
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.settings, color: Colors.white),
-                          ),
                         ],
                       ),
                     ),
                     Container(
-                      // padding: EdgeInsets.only(left: 20, right: 20, top: 80),
                       height: 165,
                       width: MediaQuery.of(context).size.width,
                       color: Colors.white,
@@ -112,14 +111,14 @@ class _artikelDetailState extends State<artikelDetail> {
                           backgroundColor: 'C4FCD0'.toColor(),
                           avatar: Icon(
                             Icons.share,
-                            size: 15,
+                            size: 14,
                             color: '009922'.toColor(),
                           ),
                           label: Text(
                             'Share',
                             style: GoogleFonts.poppins().copyWith(
                               fontWeight: FontWeight.bold,
-                              fontSize: 14,
+                              fontSize: 10,
                               color: '009922'.toColor(),
                             ),
                           ),
@@ -132,14 +131,14 @@ class _artikelDetailState extends State<artikelDetail> {
                           backgroundColor: 'FEFFB8'.toColor(),
                           avatar: Icon(
                             Icons.bookmark,
-                            size: 19,
+                            size: 18,
                             color: 'D4B200'.toColor(),
                           ),
                           label: Text(
                             'Save',
                             style: GoogleFonts.poppins().copyWith(
                               fontWeight: FontWeight.bold,
-                              fontSize: 14,
+                              fontSize: 10,
                               color: 'D4B200'.toColor(),
                             ),
                           ),
@@ -152,14 +151,14 @@ class _artikelDetailState extends State<artikelDetail> {
                           backgroundColor: 'FEE0E0'.toColor(),
                           avatar: Icon(
                             Icons.visibility,
-                            size: 17,
+                            size: 16,
                             color: 'E97C7C'.toColor(),
                           ),
                           label: Text(
                             '1.459',
                             style: GoogleFonts.poppins().copyWith(
                               fontWeight: FontWeight.bold,
-                              fontSize: 14,
+                              fontSize: 10,
                               color: 'E97C7C'.toColor(),
                             ),
                           ),

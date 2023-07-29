@@ -16,7 +16,8 @@ class login extends StatefulWidget {
 }
 
 class _loginState extends State<login> {
-  bool isCheked = false;
+  bool isCheked = true;
+  bool _obsecureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,8 @@ class _loginState extends State<login> {
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(5)),
-                        borderSide: BorderSide(width: 1, color: '4DA934'.toColor()),
+                        borderSide:
+                            BorderSide(width: 1, color: '4DA934'.toColor()),
                       ),
                       border: OutlineInputBorder(),
                     ),
@@ -68,16 +70,28 @@ class _loginState extends State<login> {
                   ),
                   SizedBox(height: 5),
                   TextField(
-                    obscureText: true,
-                    keyboardType: TextInputType.emailAddress,
+                    obscureText: _obsecureText,
                     cursorColor: '4DA934'.toColor(),
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(5)),
-                        borderSide: BorderSide(width: 1, color: '4DA934'.toColor()),
+                        borderSide: BorderSide(
+                          width: 1,
+                          color: '4DA934'.toColor(),
+                        ),
                       ),
                       border: OutlineInputBorder(),
-                      suffixIcon: Icon(Icons.visibility_off, color: '4DA934'.toColor()),
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _obsecureText = !_obsecureText;
+                          });
+                        },
+                        child: Icon(_obsecureText ?
+                          Icons.visibility_off : Icons.visibility,
+                          color: '4DA934'.toColor(),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(height: 5),
@@ -90,6 +104,7 @@ class _loginState extends State<login> {
                   alignment: Alignment.centerLeft,
                   padding: EdgeInsets.only(left: 15),
                   child: Checkbox(
+                    activeColor: '4DA934'.toColor(),
                       value: isCheked,
                       onChanged: (bool? value) {
                         setState(() {

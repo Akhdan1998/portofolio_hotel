@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portofolio_hotel/pages/identitas/login.dart';
 import 'package:supercharged/supercharged.dart';
 
 class signup extends StatefulWidget {
@@ -11,6 +13,8 @@ class signup extends StatefulWidget {
 }
 
 class _signupState extends State<signup> {
+  bool _obsecureText = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,10 +57,18 @@ class _signupState extends State<signup> {
             ),
             SizedBox(height: 10),
             TextField(
-              keyboardType: TextInputType.emailAddress,
+              cursorColor: '4DA934'.toColor(),
               decoration: InputDecoration(
+                hintText: 'Akhdan Habibie',
+                hintStyle: GoogleFonts.poppins().copyWith(color: Colors.grey.shade400),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(
+                    width: 1,
+                    color: '4DA934'.toColor(),
+                  ),
+                ),
                 border: OutlineInputBorder(),
-                hintText: 'Ex: Pendekar Gendut',
               ),
             ),
             SizedBox(height: 10),
@@ -69,10 +81,18 @@ class _signupState extends State<signup> {
             ),
             SizedBox(height: 10),
             TextField(
-              keyboardType: TextInputType.emailAddress,
+              cursorColor: '4DA934'.toColor(),
               decoration: InputDecoration(
+                hintText: 'Proggrammer',
+                hintStyle: GoogleFonts.poppins().copyWith(color: Colors.grey.shade400),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(
+                    width: 1,
+                    color: '4DA934'.toColor(),
+                  ),
+                ),
                 border: OutlineInputBorder(),
-                hintText: 'Ex: Proggramer',
               ),
             ),
             SizedBox(height: 10),
@@ -85,10 +105,18 @@ class _signupState extends State<signup> {
             ),
             SizedBox(height: 10),
             TextField(
-              keyboardType: TextInputType.emailAddress,
+              cursorColor: '4DA934'.toColor(),
               decoration: InputDecoration(
+                hintText: '1998-24-03',
+                hintStyle: GoogleFonts.poppins().copyWith(color: Colors.grey.shade400),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(
+                    width: 1,
+                    color: '4DA934'.toColor(),
+                  ),
+                ),
                 border: OutlineInputBorder(),
-                hintText: 'Ex: 1998-24-03',
               ),
             ),
             SizedBox(height: 10),
@@ -101,10 +129,18 @@ class _signupState extends State<signup> {
             ),
             SizedBox(height: 10),
             TextField(
-              keyboardType: TextInputType.emailAddress,
+              cursorColor: '4DA934'.toColor(),
               decoration: InputDecoration(
+                hintText: '1998akhdan@gmail.com',
+                hintStyle: GoogleFonts.poppins().copyWith(color: Colors.grey.shade400),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(
+                    width: 1,
+                    color: '4DA934'.toColor(),
+                  ),
+                ),
                 border: OutlineInputBorder(),
-                hintText: 'Ex: 1998akhdan@gmail.com',
               ),
             ),
             SizedBox(height: 10),
@@ -117,20 +153,46 @@ class _signupState extends State<signup> {
             ),
             SizedBox(height: 10),
             TextField(
-              obscureText: true,
+              obscureText: _obsecureText,
+              cursorColor: '4DA934'.toColor(),
               decoration: InputDecoration(
-                contentPadding:
-                    EdgeInsets.only(right: 15, top: 14, bottom: 14, left: 15),
-                suffix: Icon(Icons.visibility_off),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(
+                    width: 1,
+                    color: '4DA934'.toColor(),
+                  ),
+                ),
                 border: OutlineInputBorder(),
-                // hintText: 'Ex: Pendekar Gendut',
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _obsecureText = !_obsecureText;
+                    });
+                  },
+                  child: Icon(_obsecureText ?
+                  Icons.visibility_off : Icons.visibility,
+                    color: '4DA934'.toColor(),
+                  ),
+                ),
               ),
             ),
           ],
         ),
       ),
       bottomNavigationBar: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Get.back();
+          Fluttertoast.showToast(
+              msg: "Successful Registration",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.TOP,
+              timeInSecForIosWeb: 3,
+              backgroundColor: '4DA934'.toColor(),
+              textColor: Colors.white,
+              fontSize: 16.0
+          );
+        },
         child: Container(
           height: 110,
           padding: EdgeInsets.only(left: 30, right: 30, top: 15, bottom: 40),

@@ -14,6 +14,7 @@ import 'package:story/story.dart';
 import 'package:story/story_image.dart';
 
 import '../../widget/destinasiwisata.dart';
+import 'cariKota.dart';
 
 class home extends StatefulWidget {
   @override
@@ -92,32 +93,33 @@ class _homeState extends State<home> with TickerProviderStateMixin {
         child: Column(
           children: [
             Container(
-              // height: 75,
               color: '4DA934'.toColor(),
               padding: EdgeInsets.only(left: 16, right: 16, top: 5, bottom: 15),
-              child: Container(
-                // height: 55,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30)),
-                child: TextField(
-                  cursorColor: '4DA934'.toColor(),
-                  decoration: InputDecoration(
-                    hintText: 'Find Your Hotel',
-                    hintStyle: GoogleFonts.poppins()
-                        .copyWith(color: 'C4C4C4'.toColor(), fontSize: 15),
-                    prefixIcon: Icon(Icons.search, color: 'C4C4C4'.toColor()),
-                    // contentPadding: EdgeInsets.only(left: 20, bottom: 20),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                      borderSide: BorderSide(
-                        width: 1,
-                        color: '4DA934'.toColor(),
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(cariKota());
+                },
+                child: Container(
+                  padding: EdgeInsets.only(left: 16),
+                  width: MediaQuery.of(context).size.width,
+                  height: 45,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30)),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(Icons.search, color: 'C4C4C4'.toColor(), size: 20,),
+                      SizedBox(width: 7),
+                      Text(
+                        'Find Your Gotel',
+                        style: GoogleFonts.poppins().copyWith(
+                          fontSize: 15,
+                          color: 'C4C4C4'.toColor(),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 ),
               ),

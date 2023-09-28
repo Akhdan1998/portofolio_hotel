@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portofolio_hotel/story/story_circle.dart';
 import 'package:portofolio_hotel/story/story_model.dart';
 import 'package:portofolio_hotel/story/storypage.dart';
-import 'package:portofolio_hotel/pages/home/user_model.dart';
+import 'package:portofolio_hotel/model/user_model.dart';
 import 'package:portofolio_hotel/widget/artikel/artikel.dart';
 import 'package:portofolio_hotel/widget/artikel/artikelHome.dart';
 import 'package:portofolio_hotel/widget/bestdestination.dart';

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:portofolio_hotel/pages/identitas/login.dart';
 import 'package:supercharged/supercharged.dart';
 
@@ -14,6 +16,12 @@ class signup extends StatefulWidget {
 
 class _signupState extends State<signup> {
   bool _obsecureText = true;
+  final name = TextEditingController();
+  final job = TextEditingController();
+  final date = TextEditingController();
+  final email = TextEditingController();
+  final pass = TextEditingController();
+  final _formState = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -42,156 +50,218 @@ class _signupState extends State<signup> {
           ],
         ),
       ),
-      body: Container(
-        padding: EdgeInsets.only(left: 30, right: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 30),
-            Text(
-              'Full Name',
-              style: GoogleFonts.poppins().copyWith(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 15,
-                  color: '818181'.toColor()),
-            ),
-            SizedBox(height: 10),
-            TextField(
-              cursorColor: '4DA934'.toColor(),
-              decoration: InputDecoration(
-                hintText: 'Akhdan Habibie',
-                hintStyle: GoogleFonts.poppins().copyWith(color: Colors.grey.shade400),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                  borderSide: BorderSide(
-                    width: 1,
-                    color: '4DA934'.toColor(),
-                  ),
-                ),
-                border: OutlineInputBorder(),
+      body: Form(
+        key: _formState,
+        child: Container(
+          padding: EdgeInsets.only(left: 30, right: 30),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 30),
+              Text(
+                'Full Name',
+                style: GoogleFonts.poppins().copyWith(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 15,
+                    color: '818181'.toColor()),
               ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Job',
-              style: GoogleFonts.poppins().copyWith(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 15,
-                  color: '818181'.toColor()),
-            ),
-            SizedBox(height: 10),
-            TextField(
-              cursorColor: '4DA934'.toColor(),
-              decoration: InputDecoration(
-                hintText: 'Proggrammer',
-                hintStyle: GoogleFonts.poppins().copyWith(color: Colors.grey.shade400),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                  borderSide: BorderSide(
-                    width: 1,
-                    color: '4DA934'.toColor(),
+              SizedBox(height: 10),
+              TextFormField(
+                textCapitalization: TextCapitalization.sentences,
+                validator: (value) {
+                  if (value == '') {
+                    return 'Name cannot be empty';
+                  }
+                  return null;
+                },
+                controller: name,
+                cursorColor: '4DA934'.toColor(),
+                decoration: InputDecoration(
+                  hintText: 'Akhdan Habibie',
+                  hintStyle: GoogleFonts.poppins().copyWith(color: Colors.grey.shade400),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    borderSide: BorderSide(
+                      width: 1,
+                      color: '4DA934'.toColor(),
+                    ),
                   ),
+                  border: OutlineInputBorder(),
                 ),
-                border: OutlineInputBorder(),
               ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Date Birth',
-              style: GoogleFonts.poppins().copyWith(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 15,
-                  color: '818181'.toColor()),
-            ),
-            SizedBox(height: 10),
-            TextField(
-              cursorColor: '4DA934'.toColor(),
-              decoration: InputDecoration(
-                hintText: '1998-24-03',
-                hintStyle: GoogleFonts.poppins().copyWith(color: Colors.grey.shade400),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                  borderSide: BorderSide(
-                    width: 1,
-                    color: '4DA934'.toColor(),
-                  ),
-                ),
-                border: OutlineInputBorder(),
+              SizedBox(height: 10),
+              Text(
+                'Job',
+                style: GoogleFonts.poppins().copyWith(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 15,
+                    color: '818181'.toColor()),
               ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Email Address',
-              style: GoogleFonts.poppins().copyWith(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 15,
-                  color: '818181'.toColor()),
-            ),
-            SizedBox(height: 10),
-            TextField(
-              cursorColor: '4DA934'.toColor(),
-              decoration: InputDecoration(
-                hintText: '1998akhdan@gmail.com',
-                hintStyle: GoogleFonts.poppins().copyWith(color: Colors.grey.shade400),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                  borderSide: BorderSide(
-                    width: 1,
-                    color: '4DA934'.toColor(),
+              SizedBox(height: 10),
+              TextFormField(
+                textCapitalization: TextCapitalization.sentences,
+                validator: (value) {
+                  if (value == '') {
+                    return 'Job cannot be empty';
+                  }
+                  return null;
+                },
+                controller: job,
+                cursorColor: '4DA934'.toColor(),
+                decoration: InputDecoration(
+                  hintText: 'Proggrammer',
+                  hintStyle: GoogleFonts.poppins().copyWith(color: Colors.grey.shade400),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    borderSide: BorderSide(
+                      width: 1,
+                      color: '4DA934'.toColor(),
+                    ),
                   ),
+                  border: OutlineInputBorder(),
                 ),
-                border: OutlineInputBorder(),
               ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Password',
-              style: GoogleFonts.poppins().copyWith(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 15,
-                  color: '818181'.toColor()),
-            ),
-            SizedBox(height: 10),
-            TextField(
-              obscureText: _obsecureText,
-              cursorColor: '4DA934'.toColor(),
-              decoration: InputDecoration(
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                  borderSide: BorderSide(
-                    width: 1,
-                    color: '4DA934'.toColor(),
-                  ),
-                ),
-                border: OutlineInputBorder(),
-                suffixIcon: GestureDetector(
-                  onTap: () {
+              SizedBox(height: 10),
+              Text(
+                'Date Birth',
+                style: GoogleFonts.poppins().copyWith(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 15,
+                    color: '818181'.toColor()),
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                onTap: () async {
+                  DateTime? pickeddate =
+                  await showDatePicker(
+                      context: context,
+                      initialDate:
+                      DateTime.now(),
+                      firstDate: DateTime(1945),
+                      lastDate: DateTime(2500));
+
+                  if (pickeddate != null) {
                     setState(() {
-                      _obsecureText = !_obsecureText;
+                      date.text =
+                          DateFormat('dd-MM-yyyy')
+                              .format(pickeddate);
                     });
-                  },
-                  child: Icon(_obsecureText ?
-                  Icons.visibility_off : Icons.visibility,
-                    color: '4DA934'.toColor(),
+                  }
+                },
+                validator: (value) {
+                  if (value == '') {
+                    return 'Date of Birth cannot be empty';
+                  }
+                  return null;
+                },
+                controller: date,
+                cursorColor: '4DA934'.toColor(),
+                decoration: InputDecoration(
+                  hintText: '1998-24-03',
+                  hintStyle: GoogleFonts.poppins().copyWith(color: Colors.grey.shade400),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    borderSide: BorderSide(
+                      width: 1,
+                      color: '4DA934'.toColor(),
+                    ),
+                  ),
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Email Address',
+                style: GoogleFonts.poppins().copyWith(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 15,
+                    color: '818181'.toColor()),
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                keyboardType: TextInputType.emailAddress,
+                validator: (value) {
+                  if (value == '' || !value!.contains('@')) {
+                    return 'Email cannot be empty!!';
+                  }
+                  return null;
+                },
+                controller: email,
+                cursorColor: '4DA934'.toColor(),
+                decoration: InputDecoration(
+                  hintText: '1998akhdan@gmail.com',
+                  hintStyle: GoogleFonts.poppins().copyWith(color: Colors.grey.shade400),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    borderSide: BorderSide(
+                      width: 1,
+                      color: '4DA934'.toColor(),
+                    ),
+                  ),
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Password',
+                style: GoogleFonts.poppins().copyWith(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 15,
+                    color: '818181'.toColor()),
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                validator: (value) {
+                  if (value == '') {
+                    return 'Password cannot be empty!!';
+                  }
+                  return null;
+                },
+                controller: pass,
+                obscureText: _obsecureText,
+                cursorColor: '4DA934'.toColor(),
+                decoration: InputDecoration(
+                  hintText: 'Password',
+                  hintStyle: GoogleFonts.poppins().copyWith(color: Colors.grey.shade400),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    borderSide: BorderSide(
+                      width: 1,
+                      color: '4DA934'.toColor(),
+                    ),
+                  ),
+                  border: OutlineInputBorder(),
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _obsecureText = !_obsecureText;
+                      });
+                    },
+                    child: Icon(_obsecureText ?
+                    Icons.visibility_off : Icons.visibility,
+                      color: '4DA934'.toColor(),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: GestureDetector(
-        onTap: () {
-          Get.back();
-          Fluttertoast.showToast(
-              msg: "Successful Registration",
-              toastLength: Toast.LENGTH_SHORT,
-              gravity: ToastGravity.TOP,
-              timeInSecForIosWeb: 3,
-              backgroundColor: '4DA934'.toColor(),
-              textColor: Colors.white,
-              fontSize: 16.0
-          );
+        onTap: () async {
+          if (_formState.currentState!.validate()) {
+            Get.back();
+            Fluttertoast.showToast(
+                msg: "Successful Registration",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.TOP,
+                timeInSecForIosWeb: 3,
+                backgroundColor: '4DA934'.toColor(),
+                textColor: Colors.white,
+                fontSize: 16.0
+            );
+          } else {}
         },
         child: Container(
           height: 110,

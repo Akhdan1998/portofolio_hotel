@@ -68,6 +68,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
             }
           },
           icon: AnimatedIcon(
+            color: Colors.white,
             icon: AnimatedIcons.menu_home,
             progress: _controller,
             size: 30,
@@ -82,6 +83,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
             icon: Icon(
               Icons.notifications,
               size: 27,
+              color: Colors.white,
             ),
           ),
         ],
@@ -113,7 +115,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                       Icon(Icons.search, color: 'C4C4C4'.toColor(), size: 20,),
                       SizedBox(width: 7),
                       Text(
-                        'Find Your Gotel',
+                        'Find Your Hotel',
                         style: GoogleFonts.poppins().copyWith(
                           fontSize: 15,
                           color: 'C4C4C4'.toColor(),

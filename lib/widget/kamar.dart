@@ -7,12 +7,14 @@ import 'package:portofolio_hotel/model/kota.dart';
 import 'package:supercharged/supercharged.dart';
 
 class kamar extends StatefulWidget {
+
   @override
   State<kamar> createState() => _kamarState();
 }
 
 class _kamarState extends State<kamar> {
   int saldo = 257000;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,18 +95,18 @@ class _kamarState extends State<kamar> {
                         allowHalfRating: true,
                         itemCount: 5,
                         // itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                        itemBuilder: (context, _) =>
-                            Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
+                        itemBuilder: (context, _) => Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
                         onRatingUpdate: (rating) {
                           print(rating);
                         },
                       ),
                       Row(
                         children: [
-                          Icon(Icons.event_busy, size: 15, color: '626161'.toColor()),
+                          Icon(Icons.event_busy,
+                              size: 15, color: '626161'.toColor()),
                           SizedBox(width: 6),
                           Text(
                             'Free Cancellation',
@@ -122,7 +124,8 @@ class _kamarState extends State<kamar> {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.wifi, size: 15, color: '626161'.toColor()),
+                                Icon(Icons.wifi,
+                                    size: 15, color: '626161'.toColor()),
                                 SizedBox(width: 6),
                                 Text(
                                   'Free Wifi',
@@ -135,7 +138,9 @@ class _kamarState extends State<kamar> {
                             ),
                             Text(
                               NumberFormat.currency(
-                                  locale: 'id', symbol: 'Rp ', decimalDigits: 0)
+                                      locale: 'id',
+                                      symbol: 'Rp ',
+                                      decimalDigits: 0)
                                   .format(saldo),
                               style: GoogleFonts.poppins().copyWith(
                                 fontWeight: FontWeight.bold,
@@ -153,7 +158,8 @@ class _kamarState extends State<kamar> {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.restaurant, size: 15, color: '626161'.toColor()),
+                                Icon(Icons.restaurant,
+                                    size: 15, color: '626161'.toColor()),
                                 SizedBox(width: 6),
                                 Text(
                                   'Free Breakfast',
@@ -221,18 +227,18 @@ class _kamarState extends State<kamar> {
                         allowHalfRating: true,
                         itemCount: 5,
                         // itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                        itemBuilder: (context, _) =>
-                            Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
+                        itemBuilder: (context, _) => Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
                         onRatingUpdate: (rating) {
                           print(rating);
                         },
                       ),
                       Row(
                         children: [
-                          Icon(Icons.event_busy, size: 15, color: '626161'.toColor()),
+                          Icon(Icons.event_busy,
+                              size: 15, color: '626161'.toColor()),
                           SizedBox(width: 6),
                           Text(
                             'Free Cancellation',
@@ -250,7 +256,8 @@ class _kamarState extends State<kamar> {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.wifi, size: 15, color: '626161'.toColor()),
+                                Icon(Icons.wifi,
+                                    size: 15, color: '626161'.toColor()),
                                 SizedBox(width: 6),
                                 Text(
                                   'Free Wifi',
@@ -263,7 +270,9 @@ class _kamarState extends State<kamar> {
                             ),
                             Text(
                               NumberFormat.currency(
-                                  locale: 'id', symbol: 'Rp ', decimalDigits: 0)
+                                      locale: 'id',
+                                      symbol: 'Rp ',
+                                      decimalDigits: 0)
                                   .format(saldo),
                               style: GoogleFonts.poppins().copyWith(
                                 fontWeight: FontWeight.bold,
@@ -281,7 +290,8 @@ class _kamarState extends State<kamar> {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.restaurant, size: 15, color: '626161'.toColor()),
+                                Icon(Icons.restaurant,
+                                    size: 15, color: '626161'.toColor()),
                                 SizedBox(width: 6),
                                 Text(
                                   'Free Breakfast',
@@ -349,18 +359,18 @@ class _kamarState extends State<kamar> {
                         allowHalfRating: true,
                         itemCount: 5,
                         // itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                        itemBuilder: (context, _) =>
-                            Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
+                        itemBuilder: (context, _) => Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
                         onRatingUpdate: (rating) {
                           print(rating);
                         },
                       ),
                       Row(
                         children: [
-                          Icon(Icons.event_busy, size: 15, color: '626161'.toColor()),
+                          Icon(Icons.event_busy,
+                              size: 15, color: '626161'.toColor()),
                           SizedBox(width: 6),
                           Text(
                             'Free Cancellation',
@@ -378,7 +388,8 @@ class _kamarState extends State<kamar> {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.wifi, size: 15, color: '626161'.toColor()),
+                                Icon(Icons.wifi,
+                                    size: 15, color: '626161'.toColor()),
                                 SizedBox(width: 6),
                                 Text(
                                   'Free Wifi',
@@ -391,7 +402,9 @@ class _kamarState extends State<kamar> {
                             ),
                             Text(
                               NumberFormat.currency(
-                                  locale: 'id', symbol: 'Rp ', decimalDigits: 0)
+                                      locale: 'id',
+                                      symbol: 'Rp ',
+                                      decimalDigits: 0)
                                   .format(saldo),
                               style: GoogleFonts.poppins().copyWith(
                                 fontWeight: FontWeight.bold,
@@ -409,7 +422,8 @@ class _kamarState extends State<kamar> {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.restaurant, size: 15, color: '626161'.toColor()),
+                                Icon(Icons.restaurant,
+                                    size: 15, color: '626161'.toColor()),
                                 SizedBox(width: 6),
                                 Text(
                                   'Free Breakfast',
@@ -477,18 +491,18 @@ class _kamarState extends State<kamar> {
                         allowHalfRating: true,
                         itemCount: 5,
                         // itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                        itemBuilder: (context, _) =>
-                            Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
+                        itemBuilder: (context, _) => Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
                         onRatingUpdate: (rating) {
                           print(rating);
                         },
                       ),
                       Row(
                         children: [
-                          Icon(Icons.event_busy, size: 15, color: '626161'.toColor()),
+                          Icon(Icons.event_busy,
+                              size: 15, color: '626161'.toColor()),
                           SizedBox(width: 6),
                           Text(
                             'Free Cancellation',
@@ -506,7 +520,8 @@ class _kamarState extends State<kamar> {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.wifi, size: 15, color: '626161'.toColor()),
+                                Icon(Icons.wifi,
+                                    size: 15, color: '626161'.toColor()),
                                 SizedBox(width: 6),
                                 Text(
                                   'Free Wifi',
@@ -519,7 +534,9 @@ class _kamarState extends State<kamar> {
                             ),
                             Text(
                               NumberFormat.currency(
-                                  locale: 'id', symbol: 'Rp ', decimalDigits: 0)
+                                      locale: 'id',
+                                      symbol: 'Rp ',
+                                      decimalDigits: 0)
                                   .format(saldo),
                               style: GoogleFonts.poppins().copyWith(
                                 fontWeight: FontWeight.bold,
@@ -537,7 +554,8 @@ class _kamarState extends State<kamar> {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.restaurant, size: 15, color: '626161'.toColor()),
+                                Icon(Icons.restaurant,
+                                    size: 15, color: '626161'.toColor()),
                                 SizedBox(width: 6),
                                 Text(
                                   'Free Breakfast',

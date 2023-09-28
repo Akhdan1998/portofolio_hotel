@@ -19,12 +19,6 @@ class _PassengerProfileState extends State<PassengerProfile> {
   final date = TextEditingController();
   final phone = TextEditingController();
   final _formState = GlobalKey<FormState>();
-  FocusNode focusTitle = FocusNode();
-  FocusNode focusNik = FocusNode();
-  FocusNode focusFirst = FocusNode();
-  FocusNode focusLast = FocusNode();
-  FocusNode focusEmail = FocusNode();
-  FocusNode focusNumber = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -261,7 +255,6 @@ class _PassengerProfileState extends State<PassengerProfile> {
                 child: Column(
                   children: [
                     TextFormField(
-                      focusNode: focusTitle,
                       controller: title,
                       validator: (value) {
                         if (value == '') {
@@ -287,7 +280,6 @@ class _PassengerProfileState extends State<PassengerProfile> {
                     ),
                     SizedBox(height: 15),
                     TextFormField(
-                      focusNode: focusNik,
                       controller: nik,
                       validator: (value) {
                         if (value == '') {
@@ -313,7 +305,6 @@ class _PassengerProfileState extends State<PassengerProfile> {
                     ),
                     SizedBox(height: 15),
                     TextFormField(
-                      focusNode: focusFirst,
                       controller: firstname,
                       validator: (value) {
                         if (value == '') {
@@ -339,7 +330,6 @@ class _PassengerProfileState extends State<PassengerProfile> {
                     ),
                     SizedBox(height: 15),
                     TextFormField(
-                      focusNode: focusLast,
                       validator: (value) {
                         if (value == '') {
                           return 'Last Name cannot be empty!!';
@@ -365,7 +355,6 @@ class _PassengerProfileState extends State<PassengerProfile> {
                     ),
                     SizedBox(height: 15),
                     TextFormField(
-                      focusNode: focusEmail,
                       keyboardType: TextInputType.emailAddress,
                       validator: (value) {
                         if (value == '' || !value!.contains('@')) {
@@ -431,7 +420,6 @@ class _PassengerProfileState extends State<PassengerProfile> {
                     ),
                     SizedBox(height: 15),
                     TextFormField(
-                      focusNode: focusNumber,
                       keyboardType: TextInputType.number,
                       validator: (value) {
                         if (value == '') {

@@ -17,6 +17,8 @@ class _editprofilState extends State<editprofil> {
   final pass = TextEditingController();
   final job = TextEditingController();
   final email = TextEditingController();
+  final _formState = GlobalKey<FormState>();
+
   bool _obsecureText = true;
 
   File? _image;
@@ -56,166 +58,188 @@ class _editprofilState extends State<editprofil> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            Container(
-              height: 35,
-              color: '4DA934'.toColor(),
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(15),
-                      topLeft: Radius.circular(15),
-                    ),
-                    color: Colors.white),
+      body: Form(
+        key: _formState,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              Container(
+                height: 35,
+                color: '4DA934'.toColor(),
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(15),
+                        topLeft: Radius.circular(15),
+                      ),
+                      color: Colors.white),
+                ),
               ),
-            ),
-            Stack(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    getImage();
-                  },
-                  child: _image != null
-                      ? Container(
-                          width: 180,
-                          height: 180,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: FileImage(_image!),
+              Stack(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      getImage();
+                    },
+                    child: _image != null
+                        ? Container(
+                            width: 180,
+                            height: 180,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: FileImage(_image!),
+                              ),
+                            ),
+                          )
+                        : Container(
+                      width: 180,
+                      height: 180,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/foto.png'),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                          top: 140,
+                          left: 130,
+                          child: Container(
+                            height: 40,
+                            width: 40,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: '4DA934'.toColor(),
+                            ),
+                            child: Icon(
+                              Icons.edit,
+                              color: Colors.white,
                             ),
                           ),
-                        )
-                      : Container(
-                    width: 180,
-                    height: 180,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('assets/foto.png'),
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                        top: 140,
-                        left: 130,
-                        child: Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            color: '4DA934'.toColor(),
-                          ),
-                          child: Icon(
-                            Icons.edit,
-                            color: Colors.white,
-                          ),
                         ),
-                      ),
-              ],
-            ),
-            SizedBox(height: 70),
-            Container(
-              padding: EdgeInsets.only(left: 30, right: 30),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Job',
-                    style: GoogleFonts.poppins().copyWith(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 15,
-                        color: '818181'.toColor()),
-                  ),
-                  SizedBox(height: 5),
-                  TextField(
-                    cursorColor: '4DA934'.toColor(),
-                    controller: job,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        borderSide:
-                            BorderSide(width: 1, color: '4DA934'.toColor()),
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(),
-                      ),
-                      hintText: 'Proggrammer',
-                    ),
-                  ),
-                  SizedBox(height: 12),
-                  Text(
-                    'Email Address',
-                    style: GoogleFonts.poppins().copyWith(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 15,
-                        color: '818181'.toColor()),
-                  ),
-                  SizedBox(height: 5),
-                  TextField(
-                    cursorColor: '4DA934'.toColor(),
-                    controller: email,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        borderSide:
-                            BorderSide(width: 1, color: '4DA934'.toColor()),
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(),
-                      ),
-                      hintText: 'akhdanhabibie192@gmail.com',
-                    ),
-                  ),
-                  SizedBox(height: 12),
-                  Text(
-                    'Password',
-                    style: GoogleFonts.poppins().copyWith(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 15,
-                        color: '818181'.toColor()),
-                  ),
-                  SizedBox(height: 5),
-                  TextField(
-                    controller: pass,
-                    obscureText: _obsecureText,
-                    cursorColor: '4DA934'.toColor(),
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        borderSide: BorderSide(
-                          width: 1,
-                          color: '4DA934'.toColor(),
-                        ),
-                      ),
-                      border: OutlineInputBorder(),
-                      suffixIcon: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _obsecureText = !_obsecureText;
-                          });
-                        },
-                        child: Icon(
-                          _obsecureText
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                          color: '4DA934'.toColor(),
-                        ),
-                      ),
-                    ),
-                  ),
                 ],
               ),
-            ),
-          ],
+              SizedBox(height: 70),
+              Container(
+                padding: EdgeInsets.only(left: 30, right: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Job',
+                      style: GoogleFonts.poppins().copyWith(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 15,
+                          color: '818181'.toColor()),
+                    ),
+                    SizedBox(height: 5),
+                    TextFormField(
+                      validator: (value) {
+                        if (value == '') {
+                          return 'Job cannot be empty!!';
+                        }
+                        return null;
+                      },
+                      cursorColor: '4DA934'.toColor(),
+                      controller: job,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          borderSide:
+                              BorderSide(width: 1, color: '4DA934'.toColor()),
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(),
+                        ),
+                        hintText: 'Proggrammer',
+                      ),
+                    ),
+                    SizedBox(height: 12),
+                    Text(
+                      'Email Address',
+                      style: GoogleFonts.poppins().copyWith(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 15,
+                          color: '818181'.toColor()),
+                    ),
+                    SizedBox(height: 5),
+                    TextFormField(
+                      validator: (value) {
+                        if (value == '' || !value!.contains('@')) {
+                          return 'Email cannot be empty!!';
+                        }
+                        return null;
+                      },
+                      cursorColor: '4DA934'.toColor(),
+                      controller: email,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          borderSide:
+                              BorderSide(width: 1, color: '4DA934'.toColor()),
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(),
+                        ),
+                        hintText: 'akhdanhabibie192@gmail.com',
+                      ),
+                    ),
+                    SizedBox(height: 12),
+                    Text(
+                      'Password',
+                      style: GoogleFonts.poppins().copyWith(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 15,
+                          color: '818181'.toColor()),
+                    ),
+                    SizedBox(height: 5),
+                    TextFormField(
+                      validator: (value) {
+                        if (value == '') {
+                          return 'Password cannot be empty!!';
+                        }
+                        return null;
+                      },
+                      controller: pass,
+                      obscureText: _obsecureText,
+                      cursorColor: '4DA934'.toColor(),
+                      decoration: InputDecoration(
+                        hintText: 'Password',
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          borderSide: BorderSide(
+                            width: 1,
+                            color: '4DA934'.toColor(),
+                          ),
+                        ),
+                        border: OutlineInputBorder(),
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _obsecureText = !_obsecureText;
+                            });
+                          },
+                          child: Icon(
+                            _obsecureText
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: '4DA934'.toColor(),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(
@@ -237,21 +261,23 @@ class _editprofilState extends State<editprofil> {
             backgroundColor: '4DA934'.toColor(),
           ),
           onPressed: () {
-            Get.back();
-            Fluttertoast.showToast(
-                msg: "Updated profile",
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.BOTTOM,
-                timeInSecForIosWeb: 3,
-                backgroundColor: '4DA934'.toColor(),
-                textColor: Colors.white,
-                fontSize: 16.0
-            );
+            if (_formState.currentState!.validate()) {
+              Get.back();
+              Fluttertoast.showToast(
+                  msg: "Updated profile",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.BOTTOM,
+                  timeInSecForIosWeb: 3,
+                  backgroundColor: '4DA934'.toColor(),
+                  textColor: Colors.white,
+                  fontSize: 16.0
+              );
+            } else {}
           },
           child: Text(
             'Save Profile',
             style: GoogleFonts.poppins().copyWith(
-              fontSize: 12,
+              fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
           ),

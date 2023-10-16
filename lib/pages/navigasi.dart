@@ -15,7 +15,7 @@ class navigasi extends StatefulWidget {
 class _navigasiState extends State<navigasi> {
   int _selectedIndex = 0;
   PageController controller = PageController();
-
+  bool isDrawerOpen = false;
   void _navigasiBottomBar(int index) {
     setState(() {
       _selectedIndex = index;
@@ -34,8 +34,9 @@ class _navigasiState extends State<navigasi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.transparent,
+      backgroundColor: Colors.white,
       body: Container(
+        color: Colors.white,
         height: MediaQuery.of(context).size.height,
         child: PageView(
           controller: controller,
@@ -51,7 +52,7 @@ class _navigasiState extends State<navigasi> {
         // alignment: Alignment.bottomCenter,
         // height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-          // color: Colors.red,
+          color: Colors.red,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),

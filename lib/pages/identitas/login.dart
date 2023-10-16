@@ -18,8 +18,8 @@ class login extends StatefulWidget {
 class _loginState extends State<login> {
   bool isCheked = true;
   bool _obsecureText = true;
-  final email = TextEditingController(text: 'wkwk@');
-  final pass = TextEditingController(text: 'wkwk');
+  final email = TextEditingController();
+  final pass = TextEditingController();
   final _formState = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {

@@ -13,7 +13,7 @@ import 'package:portofolio_hotel/widget/recommendedHotel.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:story/story.dart';
 import 'package:story/story_image.dart';
-
+import 'package:badges/badges.dart' as badges;
 import '../../widget/destinasiwisata.dart';
 import 'cariHotel/cariHotel.dart';
 import 'cariKota.dart';
@@ -31,12 +31,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<Map<String, dynamic>> _items = List.generate(
       1,
-      (index) => {
-            // "id": index,
-            // "title": "Contact",
-            // "content":
-            // "This is the main content of item $index. It is very long and you have to expand the tile to see it."
-          });
+      (index) => {});
 
   @override
   void initState() {
@@ -94,14 +89,48 @@ class _homeState extends State<home> with TickerProviderStateMixin {
         title: Image.asset('assets/hotelpedia.png', scale: 3.5),
         centerTitle: true,
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
+          badges.Badge(
+            position: badges.BadgePosition.topEnd(top: -15, end: -12),
+            showBadge: true,
+            ignorePointer: false,
+            onTap: () {},
+            badgeContent: Text('3'),
+            badgeAnimation: badges.BadgeAnimation.rotation(
+              animationDuration: Duration(seconds: 1),
+              colorChangeAnimationDuration: Duration(seconds: 1),
+              loopAnimation: false,
+              curve: Curves.fastOutSlowIn,
+              colorChangeAnimationCurve: Curves.easeInCubic,
+            ),
+            badgeStyle: badges.BadgeStyle(
+              // shape: badges.BadgeShape.square,
+              badgeColor: Colors.red,
+              padding: EdgeInsets.all(5),
+              borderRadius: BorderRadius.circular(4),
+              // borderSide: BorderSide(color: Colors.white, width: 2),
+              // borderGradient: badges.BadgeGradient.linear(
+              //     colors: [Colors.red, Colors.black]),
+              // badgeGradient: badges.BadgeGradient.linear(
+              //   colors: [Colors.blue, Colors.yellow],
+              //   begin: Alignment.topCenter,
+              //   end: Alignment.bottomCenter,
+              // ),
+              elevation: 0,
+            ),
+            child: Icon(
               Icons.notifications,
               size: 27,
               color: Colors.white,
             ),
           ),
+          // IconButton(
+          //   onPressed: () {},
+          //   icon: Icon(
+          //     Icons.notifications,
+          //     size: 27,
+          //     color: Colors.white,
+          //   ),
+          // ),
         ],
       ),
       body: SingleChildScrollView(

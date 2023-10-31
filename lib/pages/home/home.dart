@@ -15,6 +15,7 @@ import 'package:story/story.dart';
 import 'package:story/story_image.dart';
 
 import '../../widget/destinasiwisata.dart';
+import 'cariHotel/cariHotel.dart';
 import 'cariKota.dart';
 
 class home extends StatefulWidget {
@@ -199,7 +200,9 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                 children: [
                   SizedBox(width: 16),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(carihotel());
+                    },
                     child: Column(
                       children: [
                         Container(

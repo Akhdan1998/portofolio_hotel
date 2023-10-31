@@ -15,7 +15,6 @@ class navigasi extends StatefulWidget {
 class _navigasiState extends State<navigasi> {
   int _selectedIndex = 0;
   PageController controller = PageController();
-  bool isDrawerOpen = false;
   void _navigasiBottomBar(int index) {
     setState(() {
       _selectedIndex = index;
@@ -49,9 +48,7 @@ class _navigasiState extends State<navigasi> {
         ),
       ),
       bottomNavigationBar: Container(
-        // alignment: Alignment.bottomCenter,
-        // height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.red,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
@@ -62,7 +59,7 @@ class _navigasiState extends State<navigasi> {
           ],
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
           ),

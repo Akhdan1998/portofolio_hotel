@@ -165,7 +165,7 @@ class _profilState extends State<profil> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Pendekar Gendut',
+                                    'Akhdan Habibie',
                                     style: GoogleFonts.poppins().copyWith(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 14,

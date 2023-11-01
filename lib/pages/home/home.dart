@@ -89,48 +89,31 @@ class _homeState extends State<home> with TickerProviderStateMixin {
         title: Image.asset('assets/hotelpedia.png', scale: 3.5),
         centerTitle: true,
         actions: [
-          badges.Badge(
-            position: badges.BadgePosition.topEnd(top: -15, end: -12),
-            showBadge: true,
-            ignorePointer: false,
-            onTap: () {},
-            badgeContent: Text('3'),
-            badgeAnimation: badges.BadgeAnimation.rotation(
-              animationDuration: Duration(seconds: 1),
-              colorChangeAnimationDuration: Duration(seconds: 1),
-              loopAnimation: false,
-              curve: Curves.fastOutSlowIn,
-              colorChangeAnimationCurve: Curves.easeInCubic,
-            ),
-            badgeStyle: badges.BadgeStyle(
-              // shape: badges.BadgeShape.square,
-              badgeColor: Colors.red,
-              padding: EdgeInsets.all(5),
-              borderRadius: BorderRadius.circular(4),
-              // borderSide: BorderSide(color: Colors.white, width: 2),
-              // borderGradient: badges.BadgeGradient.linear(
-              //     colors: [Colors.red, Colors.black]),
-              // badgeGradient: badges.BadgeGradient.linear(
-              //   colors: [Colors.blue, Colors.yellow],
-              //   begin: Alignment.topCenter,
-              //   end: Alignment.bottomCenter,
-              // ),
-              elevation: 0,
-            ),
-            child: Icon(
-              Icons.notifications,
-              size: 27,
-              color: Colors.white,
+          Container(
+            padding: EdgeInsets.only(right: 14, top: 18),
+            child: GestureDetector(
+              onTap: () {},
+              child: Badge(
+                // padding: EdgeInsets.all(5),
+                label: Text('3'),
+                // shape: BadgeShape.square,
+                // badgeContent: Text(
+                //   '9',
+                //   style: GoogleFonts.montserrat().copyWith(
+                //       fontWeight: FontWeight.bold,
+                //       fontSize: 8,
+                //       color: Colors.white),
+                // ),
+                child: Icon(
+                  Icons.notifications,
+                  size: 25,
+                  color: 'FFFFFF'.toColor(),
+                ),
+                // badgeColor: '79DD2A'.toColor(),
+                // toAnimate: false,
+              ),
             ),
           ),
-          // IconButton(
-          //   onPressed: () {},
-          //   icon: Icon(
-          //     Icons.notifications,
-          //     size: 27,
-          //     color: Colors.white,
-          //   ),
-          // ),
         ],
       ),
       body: SingleChildScrollView(
@@ -595,14 +578,12 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                 height: MediaQuery.of(context).size.height,
                 color:  Colors.white,
                 child: ListView.builder(
-                    // reverse: true,
                     keyboardDismissBehavior:
                         ScrollViewKeyboardDismissBehavior.manual,
                     scrollDirection: Axis.vertical,
                     padding: EdgeInsets.zero,
                     itemCount: _items.length,
                     itemBuilder: (_, index) {
-                      // final item = _items[index];
                       return Container(
                         height: MediaQuery.of(context).size.height + 1650,
                         child: Column(
@@ -1188,7 +1169,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                                               ),
                                             ),
                                             Text(
-                                              'February 2022 – Present',
+                                              'February 2022 – October 2023',
                                               style: GoogleFonts.poppins()
                                                   .copyWith(
                                                 fontSize: 12.5,

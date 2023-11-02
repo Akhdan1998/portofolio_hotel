@@ -1,15 +1,19 @@
+import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portofolio_hotel/pages/home/cariHotel/solo.dart';
 import 'package:portofolio_hotel/pages/home/cariHotel/yogya.dart';
+import 'package:portofolio_hotel/pages/home/home.dart';
 import 'package:supercharged/supercharged.dart';
+import 'package:textfield_search/textfield_search.dart';
 
+import '../../../model/cariHotelModel.dart';
 import '../../../model/hotelKota.dart';
-import '../cariKota.dart';
 import 'bandung.dart';
 import 'bogor.dart';
+import 'hotelDetail.dart';
 import 'jakarta.dart';
 
 class carihotel extends StatefulWidget {
@@ -53,6 +57,8 @@ class _carihotelState extends State<carihotel> {
   bool history2 = true;
   int _selectedIndex = 0;
   PageController controller = PageController();
+  List<Hotel> hotels = allHotels;
+
   void _navigasiBottomBar(int index) {
     setState(() {
       _selectedIndex = index;
@@ -68,10 +74,20 @@ class _carihotelState extends State<carihotel> {
     controller = PageController(initialPage: _selectedIndex);
   }
 
+  void searchHotel(String query) {
+    final suggestions = allHotels.where((e) {
+      final hotelTitle = e.namaHotel!.toLowerCase();
+      final input = query.toLowerCase();
+      return hotelTitle.contains(input);
+    }).toList();
+    setState(() => hotels = suggestions);
+  }
+
   @override
   Widget build(BuildContext context) {
     final start = dateRange.start;
     final end = dateRange.end;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -95,7 +111,7 @@ class _carihotelState extends State<carihotel> {
                     left: 20,
                     child: GestureDetector(
                       onTap: () {
-                        Get.back();
+                        Get.to(home());
                       },
                       child: Container(
                         width: 30,
@@ -114,18 +130,19 @@ class _carihotelState extends State<carihotel> {
                     ),
                   ),
                   Positioned(
-                    top: 155,
+                    bottom: 50,
                     left: 20,
                     child: Text(
-                      'Cari Hotel',
+                      'Look for a hotel',
                       style: GoogleFonts.montserrat().copyWith(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black38,
+                      ),
                     ),
                   ),
                   Positioned(
-                    top: 190,
+                    top: 275,
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
@@ -153,301 +170,240 @@ class _carihotelState extends State<carihotel> {
                             topLeft: Radius.circular(18)),
                       ),
                       padding: EdgeInsets.only(left: 15, top: 15, right: 15),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 35,
-                            child: TextFormField(
-                              controller: carihotellokasiEditingController,
-                              decoration: InputDecoration(
-                                contentPadding:
-                                EdgeInsets.only(left: 10, bottom: 18),
-                                hintText: 'Cari Hotel berdasarkan lokasi',
-                                hintStyle: GoogleFonts.montserrat().copyWith(
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 10,
-                                    color: 'C4C4C4'.toColor()),
-                                fillColor: 'F5F5F5'.toColor(),
-                                filled: true,
-                                prefixIcon: Icon(Icons.search_outlined,
-                                    color: 'C4C4C4'.toColor(), size: 17),
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 0, style: BorderStyle.none),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 12),
-                          Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 35,
-                            decoration: BoxDecoration(
-                              color: 'F5F5F5'.toColor(),
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            padding: EdgeInsets.only(
-                                left: 16, top: 9, right: 16, bottom: 9),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.calendar_month,
-                                      size: 12,
-                                      color: 'C4C4C4'.toColor(),
-                                    ),
-                                    SizedBox(width: 10),
-                                    GestureDetector(
-                                      onTap: pickDateRange,
-                                      child: Text(
-                                        '${start.day} ${start.month}',
-                                        style: GoogleFonts.montserrat()
-                                            .copyWith(
-                                            fontWeight: FontWeight.w300,
-                                            fontSize: 11,
-                                            color: 'C4C4C4'.toColor()),
-                                      ),
-                                    ),
-                                    SizedBox(width: 3),
-                                    Text(
-                                      '-',
-                                      style: GoogleFonts.montserrat()
-                                          .copyWith(
-                                          fontWeight: FontWeight.w300,
-                                          fontSize: 11,
-                                          color: 'C4C4C4'.toColor()),
-                                    ),
-                                    SizedBox(width: 3),
-                                    GestureDetector(
-                                      onTap: pickDateRange,
-                                      child: Text(
-                                        '${end.day} ${end.month} ${end.year}',
-                                        style: GoogleFonts.montserrat()
-                                            .copyWith(
-                                            fontWeight: FontWeight.w300,
-                                            fontSize: 11,
-                                            color: 'C4C4C4'.toColor()),
-                                      ),
-                                    ),
-                                    // SizedBox(width: 29),
-                                  ],
-                                ),
-                                Text(
-                                  '|',
-                                  style: GoogleFonts.montserrat().copyWith(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 11,
-                                      color: 'C4C4C4'.toColor()),
-                                ),
-                                // SizedBox(width: 22),
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        child: Icon(
-                                          Icons.people,
-                                          size: 12,
-                                          color: 'C4C4C4'.toColor(),
-                                        ),
-                                      ),
-                                      SizedBox(width: 6),
-                                      Text(
-                                        '1 Kamar, 1 Tamu',
-                                        style: GoogleFonts.montserrat()
-                                            .copyWith(
-                                            fontWeight: FontWeight.w300,
-                                            fontSize: 11,
-                                            color: 'C4C4C4'.toColor()),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 5),
               Container(
-                padding: EdgeInsets.only(left: 15, right: 16),
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: MediaQuery.of(context).size.width,
-                    height: 34,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: '4DA934'.toColor(),
+                height: 40,
+                padding: EdgeInsets.only(left: 15, right: 15),
+                child: TextFormField(
+                  onChanged: searchHotel,
+                  controller: carihotellokasiEditingController,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(left: 10, bottom: 18),
+                    hintText: 'Search Hotels by location',
+                    hintStyle: GoogleFonts.montserrat().copyWith(
+                        fontWeight: FontWeight.w300,
+                        fontSize: 10,
+                        color: 'C4C4C4'.toColor()),
+                    fillColor: 'F5F5F5'.toColor(),
+                    filled: true,
+                    prefixIcon: Icon(Icons.search_outlined,
+                        color: 'C4C4C4'.toColor(), size: 17),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(width: 0, style: BorderStyle.none),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Text(
-                          'Ayo Cari',
-                          style: GoogleFonts.poppins().copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
                   ),
                 ),
               ),
               SizedBox(height: 10),
-              (history2 != false) ? Container(
-                padding: EdgeInsets.only(top: 12, bottom: 18),
-                width: MediaQuery.of(context).size.width,
-                // height: 108,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(left: 15),
-                      child: Text(
-                        'Pencarian Terakhir',
-                        style: GoogleFonts.montserrat().copyWith(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 11,
-                            color: Colors.black),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Container(
-                      child: SingleChildScrollView(
-                        clipBehavior: Clip.hardEdge,
-                        physics: BouncingScrollPhysics(),
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            SizedBox(width: 15),
-                            (history1 != false) ? Container(
-                              padding: EdgeInsets.only(
-                                  left: 10, top: 5, right: 5, bottom: 11),
-                              width: 240,
-                              // height: 55,
-                              decoration: BoxDecoration(
-                                border:
-                                Border.all(width: 1, color: Colors.grey),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Column(
+              Container(
+                // padding: EdgeInsets.zero,
+                height: 200,
+                child: Expanded(
+                  flex: 1,
+                  child: ListView.builder(
+                      padding: EdgeInsets.zero,
+                      reverse: true,
+                      itemCount: hotels.length,
+                      itemBuilder: (context, index) {
+                        final hotel = hotels[index];
+                        return ListTile(
+                          leading: Image.asset(
+                            hotel.image!,
+                            fit: BoxFit.cover,
+                            width: 30,
+                            height: 30,
+                          ),
+                          title: Text(hotel.namaHotel!),
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    hoteldetail(hotel: hotel)),
+                          ),
+                        );
+                      }),
+                ),
+              ),
+              // SizedBox(height: 10),
+              (history2 != false)
+                  ? Container(
+                      padding: EdgeInsets.only(top: 12, bottom: 18),
+                      width: MediaQuery.of(context).size.width,
+                      // height: 108,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Text(
+                              'Last Search',
+                              style: GoogleFonts.montserrat().copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 11,
+                                  color: Colors.black),
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Container(
+                            child: SingleChildScrollView(
+                              clipBehavior: Clip.hardEdge,
+                              physics: BouncingScrollPhysics(),
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
                                 children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        history1 = false;
-                                      });
-                                    },
-                                    child: Container(
-                                      alignment: Alignment.centerRight,
-                                      child: Container(
-                                        width: 10,
-                                        height: 10,
-                                        decoration: BoxDecoration(
-                                          color: Colors.black,
-                                          borderRadius:
-                                          BorderRadius.circular(50),
+                                  SizedBox(width: 15),
+                                  (history1 != false)
+                                      ? Container(
+                                          padding: EdgeInsets.only(
+                                              left: 10,
+                                              top: 5,
+                                              right: 5,
+                                              bottom: 11),
+                                          width: 240,
+                                          // height: 55,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                                width: 1, color: Colors.grey),
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                          child: Column(
+                                            children: [
+                                              GestureDetector(
+                                                onTap: () {
+                                                  setState(() {
+                                                    history1 = false;
+                                                  });
+                                                },
+                                                child: Container(
+                                                  alignment:
+                                                      Alignment.centerRight,
+                                                  child: Container(
+                                                    width: 10,
+                                                    height: 10,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.black,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              50),
+                                                    ),
+                                                    child: Icon(
+                                                        Icons.close_outlined,
+                                                        color: Colors.white,
+                                                        size: 7),
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                alignment: Alignment.centerLeft,
+                                                child: Text(
+                                                  'Marcopolo Hotel Resort and Spa',
+                                                  style:
+                                                      GoogleFonts.montserrat()
+                                                          .copyWith(
+                                                              fontSize: 10,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              color:
+                                                                  Colors.black),
+                                                ),
+                                              ),
+                                              SizedBox(height: 4),
+                                              Container(
+                                                alignment: Alignment.centerLeft,
+                                                child: Text(
+                                                  'Sep 12 - Sep 13 2022 | 1 Room | 1 Guest',
+                                                  style:
+                                                      GoogleFonts.montserrat()
+                                                          .copyWith(
+                                                              fontSize: 9,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w300,
+                                                              color: '7C7C7C'
+                                                                  .toColor()),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                      : Container(),
+                                  (history1 != false)
+                                      ? SizedBox(width: 10)
+                                      : Container(),
+                                  Container(
+                                    padding: EdgeInsets.only(
+                                        left: 10, top: 5, right: 5, bottom: 11),
+                                    width: 240,
+                                    // height: 55,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 1, color: Colors.grey),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              history2 = false;
+                                            });
+                                          },
+                                          child: Container(
+                                            alignment: Alignment.centerRight,
+                                            child: Container(
+                                              width: 10,
+                                              height: 10,
+                                              decoration: BoxDecoration(
+                                                color: Colors.black,
+                                                borderRadius:
+                                                    BorderRadius.circular(50),
+                                              ),
+                                              child: Icon(Icons.close_outlined,
+                                                  color: Colors.white, size: 7),
+                                            ),
+                                          ),
                                         ),
-                                        child: Icon(Icons.close_outlined,
-                                            color: Colors.white, size: 7),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      'Marcopolo Hotel Resort and Spa',
-                                      style: GoogleFonts.montserrat().copyWith(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black),
-                                    ),
-                                  ),
-                                  SizedBox(height: 4),
-                                  Container(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      '12 Sep - 13 Sep 22 | 1 Kamar | 1 Tamu',
-                                      style: GoogleFonts.montserrat().copyWith(
-                                          fontSize: 9,
-                                          fontWeight: FontWeight.w300,
-                                          color: '7C7C7C'.toColor()),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ) : Container(),
-                            (history1 != false) ? SizedBox(width: 10) : Container(),
-                            Container(
-                              padding: EdgeInsets.only(
-                                  left: 10, top: 5, right: 5, bottom: 11),
-                              width: 240,
-                              // height: 55,
-                              decoration: BoxDecoration(
-                                border:
-                                Border.all(width: 1, color: Colors.grey),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Column(
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        history2 = false;
-                                      });
-                                    },
-                                    child: Container(
-                                      alignment: Alignment.centerRight,
-                                      child: Container(
-                                        width: 10,
-                                        height: 10,
-                                        decoration: BoxDecoration(
-                                          color: Colors.black,
-                                          borderRadius:
-                                          BorderRadius.circular(50),
+                                        Container(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            'Marcopolo Hotel Resort and Spa',
+                                            style: GoogleFonts.montserrat()
+                                                .copyWith(
+                                                    fontSize: 10,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.black),
+                                          ),
                                         ),
-                                        child: Icon(Icons.close_outlined,
-                                            color: Colors.white, size: 7),
-                                      ),
+                                        SizedBox(height: 4),
+                                        Container(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            'Sep 12 - Sep 13 2022 | 1 Room | 1 Guest',
+                                            style: GoogleFonts.montserrat()
+                                                .copyWith(
+                                                    fontSize: 9,
+                                                    fontWeight: FontWeight.w300,
+                                                    color: '7C7C7C'.toColor()),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  Container(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      'Marcopolo Hotel Resort and Spa',
-                                      style: GoogleFonts.montserrat().copyWith(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black),
-                                    ),
-                                  ),
-                                  SizedBox(height: 4),
-                                  Container(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      '12 Sep - 13 Sep 22 | 1 Kamar | 1 Tamu',
-                                      style: GoogleFonts.montserrat().copyWith(
-                                          fontSize: 9,
-                                          fontWeight: FontWeight.w300,
-                                          color: '7C7C7C'.toColor()),
-                                    ),
-                                  ),
+                                  SizedBox(width: 15),
                                 ],
                               ),
                             ),
-                            SizedBox(width: 15),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-              ) : Container(),
+                    )
+                  : Container(),
               Container(
                 padding: EdgeInsets.only(left: 17),
                 alignment: Alignment.centerLeft,
@@ -636,11 +592,11 @@ class _carihotelState extends State<carihotel> {
                         child: Text(
                           'Yogyakarta',
                           style: GoogleFonts.montserrat().copyWith(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w300,
-                              color: (selectedKota == '5')
-                                  ? '4DA934'.toColor()
-                                  : Colors.grey.shade300,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w300,
+                            color: (selectedKota == '5')
+                                ? '4DA934'.toColor()
+                                : Colors.grey.shade300,
                           ),
                         ),
                       ),
@@ -666,28 +622,6 @@ class _carihotelState extends State<carihotel> {
                   ],
                 ),
               ),
-              // SingleChildScrollView(
-              //   clipBehavior: Clip.hardEdge,
-              //   physics: BouncingScrollPhysics(),
-              //   scrollDirection: Axis.horizontal,
-              //   child: SizedBox(
-              //     // color: Colors.red,
-              //     height: 126,
-              //     child: Row(
-              //       children: [
-              //         SizedBox(width: 17),
-              //         verticalhotel1(),
-              //         SizedBox(width: 15),
-              //         verticalhotel2(),
-              //         SizedBox(width: 15),
-              //         verticalhotel3(),
-              //         SizedBox(width: 15),
-              //         verticalhotel1(),
-              //         SizedBox(width: 17),
-              //       ],
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),

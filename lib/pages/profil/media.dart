@@ -154,7 +154,7 @@ class _mediaState extends State<media> {
                                 children: [
                                   Image.asset(
                                     'assets/linkedin.png',
-                                    scale: 30,
+                                    scale: 80,
                                     fit: BoxFit.cover,
                                   ),
                                   SizedBox(width: 10),

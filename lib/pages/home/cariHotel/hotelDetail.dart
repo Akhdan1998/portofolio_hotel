@@ -14,6 +14,7 @@ import '../home.dart';
 class hoteldetail extends StatefulWidget {
   final Hotel hotel;
 
+
   hoteldetail({
     Key? key,
     required this.hotel,

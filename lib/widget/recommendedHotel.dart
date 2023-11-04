@@ -1,20 +1,36 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
+import 'package:portofolio_hotel/pages/home/cariHotel/hotelDetail.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 
-class marcopolo extends StatelessWidget {
+import '../model/cariHotelModel.dart';
+
+class marcopolo extends StatefulWidget {
+  final Hotel? hotel;
+
+  marcopolo(this.hotel);
+
+  @override
+  State<marcopolo> createState() => _marcopoloState();
+}
+
+class _marcopoloState extends State<marcopolo> {
   int saldo = 257000;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Get.to(hoteldetail(hotel: widget.hotel!));
+      },
       child: Container(
-        height: 130,
-        child: Column( mainAxisAlignment: MainAxisAlignment.center,
+        height: 153,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               width: 98,
@@ -28,7 +44,9 @@ class marcopolo extends StatelessWidget {
                     offset: Offset(0, 0), // changes position of shadow
                   ),
                 ],
-                image: DecorationImage(image: AssetImage('assets/marcopolo.png')),
+                image: DecorationImage(
+                    image: AssetImage(widget.hotel!.image ?? ''),
+                    fit: BoxFit.cover),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(5),
                   topRight: Radius.circular(5),
@@ -58,23 +76,23 @@ class marcopolo extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Marcopolo Hotel',
+                    widget.hotel!.namaHotel ?? '',
                     style: GoogleFonts.poppins().copyWith(
-                        fontSize: 8,
+                        fontSize: 10,
                         color: '323232'.toColor(),
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'Menteng, Jakarta',
+                    widget.hotel!.daerahHotel ?? '',
                     style: GoogleFonts.poppins().copyWith(
-                        fontSize: 6,
+                        fontSize: 9,
                         color: '848484'.toColor(),
                         fontWeight: FontWeight.w300),
                   ),
                   Row(
                     children: [
                       RatingBar.builder(
-                        itemSize: 10,
+                        itemSize: 12,
                         initialRating: 4,
                         itemCount: 4,
                         itemBuilder: (context, _) => Icon(
@@ -89,7 +107,7 @@ class marcopolo extends StatelessWidget {
                       Text(
                         '4.0',
                         style: GoogleFonts.poppins().copyWith(
-                          fontSize: 8,
+                          fontSize: 10,
                           color: Colors.amber,
                         ),
                       )
@@ -100,10 +118,10 @@ class marcopolo extends StatelessWidget {
                       Text(
                         NumberFormat.currency(
                                 locale: 'id', symbol: 'Rp ', decimalDigits: 0)
-                            .format(saldo),
+                            .format(widget.hotel!.harga ?? ''),
                         style: GoogleFonts.poppins().copyWith(
                           fontWeight: FontWeight.bold,
-                          fontSize: 8,
+                          fontSize: 10,
                           color: '4DA934'.toColor(),
                         ),
                       ),
@@ -111,7 +129,7 @@ class marcopolo extends StatelessWidget {
                         '/night',
                         style: GoogleFonts.poppins().copyWith(
                           fontWeight: FontWeight.w300,
-                          fontSize: 5,
+                          fontSize: 7,
                           color: '757575'.toColor(),
                         ),
                       ),

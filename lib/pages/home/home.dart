@@ -1,7 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:portofolio_hotel/model/cariHotelModel.dart';
+import 'package:portofolio_hotel/pages/reservasi/hotel.dart';
 import 'package:portofolio_hotel/story/story_circle.dart';
 import 'package:portofolio_hotel/story/story_model.dart';
 import 'package:portofolio_hotel/story/storypage.dart';
@@ -16,6 +20,7 @@ import 'package:story/story_image.dart';
 import 'package:badges/badges.dart' as badges;
 import '../../widget/destinasiwisata.dart';
 import 'cariHotel/cariHotel.dart';
+import 'cariHotel/hotelDetail.dart';
 import 'cariKota.dart';
 
 class home extends StatefulWidget {
@@ -23,15 +28,12 @@ class home extends StatefulWidget {
   State<home> createState() => _homeState();
 }
 
-List<String> _list = ['Dog', "Cat", "Mouse", 'Lion'];
-
 class _homeState extends State<home> with TickerProviderStateMixin {
   // bool _isPlay = false;
+  List<Hotel> hotels = allHotels;
   late AnimationController _controller;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final List<Map<String, dynamic>> _items = List.generate(
-      1,
-      (index) => {});
+  final List<Map<String, dynamic>> _items = List.generate(1, (index) => {});
 
   @override
   void initState() {
@@ -94,16 +96,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
             child: GestureDetector(
               onTap: () {},
               child: Badge(
-                // padding: EdgeInsets.all(5),
                 label: Text('3'),
-                // shape: BadgeShape.square,
-                // badgeContent: Text(
-                //   '9',
-                //   style: GoogleFonts.montserrat().copyWith(
-                //       fontWeight: FontWeight.bold,
-                //       fontSize: 8,
-                //       color: Colors.white),
-                // ),
                 child: Icon(
                   Icons.notifications,
                   size: 25,
@@ -398,14 +391,19 @@ class _homeState extends State<home> with TickerProviderStateMixin {
               child: Row(
                 children: [
                   SizedBox(width: 16),
-                  marcopolo(),
-                  SizedBox(width: 15),
-                  marcopolo(),
-                  SizedBox(width: 15),
-                  marcopolo(),
-                  SizedBox(width: 15),
-                  marcopolo(),
-                  SizedBox(width: 16),
+                  Row(
+                    children: allHotels
+                        .map(
+                          (e) => Row(
+                            children: [
+                              marcopolo(e),
+                              SizedBox(width: 15),
+                            ],
+                          )
+                        )
+                        .toList(),
+                  ),
+                  // SizedBox(width: 16),
                 ],
               ),
             ),
@@ -576,7 +574,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
               child: Container(
                 width: MediaQuery.of(context).size.width - 125,
                 height: MediaQuery.of(context).size.height,
-                color:  Colors.white,
+                color: Colors.white,
                 child: ListView.builder(
                     keyboardDismissBehavior:
                         ScrollViewKeyboardDismissBehavior.manual,
@@ -787,7 +785,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                                                   left: 3, right: 2),
                                               decoration: BoxDecoration(
                                                 borderRadius:
-                                                BorderRadius.circular(6),
+                                                    BorderRadius.circular(6),
                                                 color: '4DA934'.toColor(),
                                               ),
                                               child: Image.asset(

@@ -185,7 +185,7 @@ class _carihotelState extends State<carihotel> {
                     hintText: 'Search Hotels by location',
                     hintStyle: GoogleFonts.montserrat().copyWith(
                         fontWeight: FontWeight.w300,
-                        fontSize: 10,
+                        fontSize: 13,
                         color: 'C4C4C4'.toColor()),
                     fillColor: 'F5F5F5'.toColor(),
                     filled: true,
@@ -228,10 +228,10 @@ class _carihotelState extends State<carihotel> {
                       }),
                 ),
               ),
-              // SizedBox(height: 10),
+              SizedBox(height: 10),
               (history2 != false)
                   ? Container(
-                      padding: EdgeInsets.only(top: 12, bottom: 18),
+                      // padding: EdgeInsets.only(top: 12, bottom: 18),
                       width: MediaQuery.of(context).size.width,
                       // height: 108,
                       child: Column(
@@ -243,11 +243,12 @@ class _carihotelState extends State<carihotel> {
                               'Last Search',
                               style: GoogleFonts.montserrat().copyWith(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 11,
+                                  fontSize: 13,
                                   color: Colors.black),
                             ),
                           ),
-                          SizedBox(height: 10),
+                          (history2 != false)
+                              ? SizedBox(height: 10) : Container(),
                           Container(
                             child: SingleChildScrollView(
                               clipBehavior: Clip.hardEdge,
@@ -273,45 +274,50 @@ class _carihotelState extends State<carihotel> {
                                           ),
                                           child: Column(
                                             children: [
-                                              GestureDetector(
-                                                onTap: () {
-                                                  setState(() {
-                                                    history1 = false;
-                                                  });
-                                                },
-                                                child: Container(
-                                                  alignment:
-                                                      Alignment.centerRight,
-                                                  child: Container(
-                                                    width: 10,
-                                                    height: 10,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.black,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              50),
-                                                    ),
-                                                    child: Icon(
-                                                        Icons.close_outlined,
-                                                        color: Colors.white,
-                                                        size: 7),
-                                                  ),
-                                                ),
-                                              ),
-                                              Container(
-                                                alignment: Alignment.centerLeft,
-                                                child: Text(
-                                                  'Marcopolo Hotel Resort and Spa',
-                                                  style:
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Container(
+                                                    alignment: Alignment.centerLeft,
+                                                    child: Text(
+                                                      'Marcopolo Hotel Resort and Spa',
+                                                      style:
                                                       GoogleFonts.montserrat()
                                                           .copyWith(
-                                                              fontSize: 10,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              color:
-                                                                  Colors.black),
-                                                ),
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                          FontWeight
+                                                              .bold,
+                                                          color:
+                                                          Colors.black),
+                                                    ),
+                                                  ),
+                                                  GestureDetector(
+                                                    onTap: () {
+                                                      setState(() {
+                                                        history1 = false;
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                      alignment:
+                                                      Alignment.centerRight,
+                                                      child: Container(
+                                                        width: 10,
+                                                        height: 10,
+                                                        decoration: BoxDecoration(
+                                                          color: Colors.black,
+                                                          borderRadius:
+                                                          BorderRadius.circular(
+                                                              50),
+                                                        ),
+                                                        child: Icon(
+                                                            Icons.close_outlined,
+                                                            color: Colors.white,
+                                                            size: 7),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                               SizedBox(height: 4),
                                               Container(
@@ -321,7 +327,7 @@ class _carihotelState extends State<carihotel> {
                                                   style:
                                                       GoogleFonts.montserrat()
                                                           .copyWith(
-                                                              fontSize: 9,
+                                                              fontSize: 11,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w300,
@@ -348,37 +354,42 @@ class _carihotelState extends State<carihotel> {
                                     ),
                                     child: Column(
                                       children: [
-                                        GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              history2 = false;
-                                            });
-                                          },
-                                          child: Container(
-                                            alignment: Alignment.centerRight,
-                                            child: Container(
-                                              width: 10,
-                                              height: 10,
-                                              decoration: BoxDecoration(
-                                                color: Colors.black,
-                                                borderRadius:
-                                                    BorderRadius.circular(50),
-                                              ),
-                                              child: Icon(Icons.close_outlined,
-                                                  color: Colors.white, size: 7),
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.centerLeft,
-                                          child: Text(
-                                            'Marcopolo Hotel Resort and Spa',
-                                            style: GoogleFonts.montserrat()
-                                                .copyWith(
-                                                    fontSize: 10,
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Container(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(
+                                                'Marcopolo Hotel Resort and Spa',
+                                                style: GoogleFonts.montserrat()
+                                                    .copyWith(
+                                                    fontSize: 12,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.black),
-                                          ),
+                                              ),
+                                            ),
+                                            GestureDetector(
+                                              onTap: () {
+                                                setState(() {
+                                                  history2 = false;
+                                                });
+                                              },
+                                              child: Container(
+                                                alignment: Alignment.centerRight,
+                                                child: Container(
+                                                  width: 10,
+                                                  height: 10,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.black,
+                                                    borderRadius:
+                                                    BorderRadius.circular(50),
+                                                  ),
+                                                  child: Icon(Icons.close_outlined,
+                                                      color: Colors.white, size: 7),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                         SizedBox(height: 4),
                                         Container(
@@ -387,7 +398,7 @@ class _carihotelState extends State<carihotel> {
                                             'Sep 12 - Sep 13 2022 | 1 Room | 1 Guest',
                                             style: GoogleFonts.montserrat()
                                                 .copyWith(
-                                                    fontSize: 9,
+                                                    fontSize: 11,
                                                     fontWeight: FontWeight.w300,
                                                     color: '7C7C7C'.toColor()),
                                           ),
@@ -411,7 +422,7 @@ class _carihotelState extends State<carihotel> {
                   'Recommended Hotel',
                   style: GoogleFonts.montserrat().copyWith(
                       fontWeight: FontWeight.bold,
-                      fontSize: 12,
+                      fontSize: 14,
                       color: Colors.black),
                 ),
               ),
@@ -423,7 +434,7 @@ class _carihotelState extends State<carihotel> {
                   'Stay here and make your holiday even more exciting!',
                   style: GoogleFonts.montserrat().copyWith(
                       fontWeight: FontWeight.w300,
-                      fontSize: 10,
+                      fontSize: 12,
                       color: '747474'.toColor()),
                 ),
               ),
@@ -459,7 +470,7 @@ class _carihotelState extends State<carihotel> {
                         child: Text(
                           'Jakarta',
                           style: GoogleFonts.montserrat().copyWith(
-                            fontSize: 10,
+                            fontSize: 12,
                             fontWeight: FontWeight.bold,
                             color: (selectedKota == '1')
                                 ? '4DA934'.toColor()
@@ -493,7 +504,7 @@ class _carihotelState extends State<carihotel> {
                         child: Text(
                           'Bogor',
                           style: GoogleFonts.montserrat().copyWith(
-                              fontSize: 10,
+                              fontSize: 12,
                               fontWeight: FontWeight.w300,
                               color: (selectedKota == '2')
                                   ? '4DA934'.toColor()
@@ -526,7 +537,7 @@ class _carihotelState extends State<carihotel> {
                         child: Text(
                           'Bandung',
                           style: GoogleFonts.montserrat().copyWith(
-                              fontSize: 10,
+                              fontSize: 12,
                               fontWeight: FontWeight.w300,
                               color: (selectedKota == '3')
                                   ? '4DA934'.toColor()
@@ -559,7 +570,7 @@ class _carihotelState extends State<carihotel> {
                         child: Text(
                           'Solo',
                           style: GoogleFonts.montserrat().copyWith(
-                              fontSize: 10,
+                              fontSize: 12,
                               fontWeight: FontWeight.w300,
                               color: (selectedKota == '4')
                                   ? '4DA934'.toColor()
@@ -592,7 +603,7 @@ class _carihotelState extends State<carihotel> {
                         child: Text(
                           'Yogyakarta',
                           style: GoogleFonts.montserrat().copyWith(
-                            fontSize: 10,
+                            fontSize: 12,
                             fontWeight: FontWeight.w300,
                             color: (selectedKota == '5')
                                 ? '4DA934'.toColor()
@@ -611,6 +622,7 @@ class _carihotelState extends State<carihotel> {
                 height: 127,
                 // width: MediaQuery.of(context).size.width - 200,
                 child: PageView(
+                  physics: NeverScrollableScrollPhysics(),
                   controller: controller,
                   scrollDirection: Axis.horizontal,
                   children: [

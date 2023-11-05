@@ -30,7 +30,6 @@ class home extends StatefulWidget {
 
 class _homeState extends State<home> with TickerProviderStateMixin {
   // bool _isPlay = false;
-  List<Hotel> hotels = allHotels;
   late AnimationController _controller;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<Map<String, dynamic>> _items = List.generate(1, (index) => {});

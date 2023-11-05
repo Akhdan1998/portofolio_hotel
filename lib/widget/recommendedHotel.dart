@@ -46,7 +46,8 @@ class _marcopoloState extends State<marcopolo> {
                 ],
                 image: DecorationImage(
                     image: AssetImage(widget.hotel!.image ?? ''),
-                    fit: BoxFit.cover),
+                    fit: BoxFit.cover,
+                ),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(5),
                   topRight: Radius.circular(5),

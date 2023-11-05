@@ -3,14 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portofolio_hotel/model/bandung_model.dart';
+import 'package:portofolio_hotel/model/jakarta_model.dart';
 import 'package:portofolio_hotel/pages/home/cariHotel/solo.dart';
 import 'package:portofolio_hotel/pages/home/cariHotel/yogya.dart';
 import 'package:portofolio_hotel/pages/home/home.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:textfield_search/textfield_search.dart';
 
+import '../../../model/bogor_model.dart';
 import '../../../model/cariHotelModel.dart';
 import '../../../model/hotelKota.dart';
+import '../../../model/solo_model.dart';
+import '../../../model/yogyakarta_model.dart';
 import 'bandung.dart';
 import 'bogor.dart';
 import 'hotelDetail.dart';
@@ -93,8 +98,9 @@ class _carihotelState extends State<carihotel> {
       body: SingleChildScrollView(
         clipBehavior: Clip.hardEdge,
         scrollDirection: Axis.vertical,
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width,
+        child: Container(
+          // width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
               Stack(
@@ -114,8 +120,8 @@ class _carihotelState extends State<carihotel> {
                         Get.to(home());
                       },
                       child: Container(
-                        width: 30,
-                        height: 30,
+                        width: 40,
+                        height: 40,
                         decoration: BoxDecoration(
                           color: Colors.grey,
                           borderRadius: BorderRadius.circular(50),
@@ -228,7 +234,7 @@ class _carihotelState extends State<carihotel> {
                       }),
                 ),
               ),
-              SizedBox(height: 10),
+              (history2 != false) ? SizedBox(height: 10) : Container(),
               (history2 != false)
                   ? Container(
                       // padding: EdgeInsets.only(top: 12, bottom: 18),
@@ -247,8 +253,7 @@ class _carihotelState extends State<carihotel> {
                                   color: Colors.black),
                             ),
                           ),
-                          (history2 != false)
-                              ? SizedBox(height: 10) : Container(),
+                          SizedBox(height: 10),
                           Container(
                             child: SingleChildScrollView(
                               clipBehavior: Clip.hardEdge,
@@ -275,21 +280,24 @@ class _carihotelState extends State<carihotel> {
                                           child: Column(
                                             children: [
                                               Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                 children: [
                                                   Container(
-                                                    alignment: Alignment.centerLeft,
+                                                    alignment:
+                                                        Alignment.centerLeft,
                                                     child: Text(
                                                       'Marcopolo Hotel Resort and Spa',
-                                                      style:
-                                                      GoogleFonts.montserrat()
+                                                      style: GoogleFonts
+                                                              .montserrat()
                                                           .copyWith(
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                          FontWeight
-                                                              .bold,
-                                                          color:
-                                                          Colors.black),
+                                                              fontSize: 12,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              color:
+                                                                  Colors.black),
                                                     ),
                                                   ),
                                                   GestureDetector(
@@ -300,18 +308,20 @@ class _carihotelState extends State<carihotel> {
                                                     },
                                                     child: Container(
                                                       alignment:
-                                                      Alignment.centerRight,
+                                                          Alignment.centerRight,
                                                       child: Container(
                                                         width: 10,
                                                         height: 10,
-                                                        decoration: BoxDecoration(
+                                                        decoration:
+                                                            BoxDecoration(
                                                           color: Colors.black,
                                                           borderRadius:
-                                                          BorderRadius.circular(
-                                                              50),
+                                                              BorderRadius
+                                                                  .circular(50),
                                                         ),
                                                         child: Icon(
-                                                            Icons.close_outlined,
+                                                            Icons
+                                                                .close_outlined,
                                                             color: Colors.white,
                                                             size: 7),
                                                       ),
@@ -355,7 +365,8 @@ class _carihotelState extends State<carihotel> {
                                     child: Column(
                                       children: [
                                         Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
                                             Container(
                                               alignment: Alignment.centerLeft,
@@ -363,9 +374,10 @@ class _carihotelState extends State<carihotel> {
                                                 'Marcopolo Hotel Resort and Spa',
                                                 style: GoogleFonts.montserrat()
                                                     .copyWith(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black),
+                                                        fontSize: 12,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.black),
                                               ),
                                             ),
                                             GestureDetector(
@@ -375,17 +387,21 @@ class _carihotelState extends State<carihotel> {
                                                 });
                                               },
                                               child: Container(
-                                                alignment: Alignment.centerRight,
+                                                alignment:
+                                                    Alignment.centerRight,
                                                 child: Container(
                                                   width: 10,
                                                   height: 10,
                                                   decoration: BoxDecoration(
                                                     color: Colors.black,
                                                     borderRadius:
-                                                    BorderRadius.circular(50),
+                                                        BorderRadius.circular(
+                                                            50),
                                                   ),
-                                                  child: Icon(Icons.close_outlined,
-                                                      color: Colors.white, size: 7),
+                                                  child: Icon(
+                                                      Icons.close_outlined,
+                                                      color: Colors.white,
+                                                      size: 7),
                                                 ),
                                               ),
                                             ),
@@ -415,6 +431,7 @@ class _carihotelState extends State<carihotel> {
                       ),
                     )
                   : Container(),
+              SizedBox(height: 10),
               Container(
                 padding: EdgeInsets.only(left: 17),
                 alignment: Alignment.centerLeft,
@@ -619,18 +636,56 @@ class _carihotelState extends State<carihotel> {
               SizedBox(height: 19),
               Container(
                 color: Colors.white,
-                height: 127,
-                // width: MediaQuery.of(context).size.width - 200,
+                height: 153,
+                // width: 514,
+                width: MediaQuery.of(context).size.width,
+                // constraints: const BoxConstraints(
+                //      minWidth: 800),
                 child: PageView(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   controller: controller,
                   scrollDirection: Axis.horizontal,
                   children: [
-                    jakarta(),
-                    bogor(),
-                    bandung(),
-                    solo(),
-                    yogyakarta(),
+                    Row(
+                      children: allJakarta
+                          .map(
+                            (e) => jakarta(e),
+                          )
+                          .toList(),
+                    ),
+                    // jakarta(),
+                    Row(
+                      children: allBogor
+                          .map(
+                            (e) => bogor(e),
+                          )
+                          .toList(),
+                    ),
+                    // bogor(),
+                    Row(
+                      children: allBandung
+                          .map(
+                            (e) => bandung(e),
+                          )
+                          .toList(),
+                    ),
+                    // bandung(),
+                    Row(
+                      children: allSolo
+                          .map(
+                            (e) => solo(e),
+                          )
+                          .toList(),
+                    ),
+                    // solo(),
+                    Row(
+                      children: allYogyakarta
+                          .map(
+                            (e) => yogyakarta(e),
+                          )
+                          .toList(),
+                    ),
+                    // yogyakarta(),
                   ],
                 ),
               ),

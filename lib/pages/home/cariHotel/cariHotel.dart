@@ -209,10 +209,9 @@ class _carihotelState extends State<carihotel> {
                 // padding: EdgeInsets.zero,
                 height: 200,
                 child: Expanded(
-                  flex: 1,
+                  // flex: 1,
                   child: ListView.builder(
                       padding: EdgeInsets.zero,
-                      reverse: true,
                       itemCount: hotels.length,
                       itemBuilder: (context, index) {
                         final hotel = hotels[index];

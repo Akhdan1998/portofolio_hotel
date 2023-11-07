@@ -21,7 +21,7 @@ import 'package:badges/badges.dart' as badges;
 import '../../widget/destinasiwisata.dart';
 import 'cariHotel/cariHotel.dart';
 import 'cariHotel/hotelDetail.dart';
-import 'cariKota.dart';
+import 'cariKota/cariKota.dart';
 
 class home extends StatefulWidget {
   @override

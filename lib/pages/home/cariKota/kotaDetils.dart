@@ -6,25 +6,24 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
-import 'package:portofolio_hotel/pages/home/cariHotel/cariHotel.dart';
 import 'package:supercharged/supercharged.dart';
 
-import '../../../model/cariHotelModel.dart';
-import '../home.dart';
+import '../../../model/kota.dart';
+import 'cariKota.dart';
 
-class hoteldetail extends StatefulWidget {
-  final Hotel hotel;
+class kotaDetils extends StatefulWidget {
+  final Kota kota;
 
-  hoteldetail({
+  kotaDetils({
     Key? key,
-    required this.hotel,
+    required this.kota,
   }) : super(key: key);
 
   @override
-  State<hoteldetail> createState() => _hoteldetailState();
+  State<kotaDetils> createState() => _kotaDetilsState();
 }
 
-class _hoteldetailState extends State<hoteldetail> {
+class _kotaDetilsState extends State<kotaDetils> {
   Completer<GoogleMapController> _controller = Completer();
 
   static final CameraPosition _kGooglePlex = CameraPosition(
@@ -40,7 +39,7 @@ class _hoteldetailState extends State<hoteldetail> {
   );
 
   bool show = false;
-  final int cuan = 237000;
+  // final int cuan = 237000;
 
   @override
   Widget build(BuildContext context) {
@@ -64,16 +63,16 @@ class _hoteldetailState extends State<hoteldetail> {
                         children: [
                           IconButton(
                             onPressed: () {
-                              Get.to(carihotel());
+                              Get.to(cariKota());
                             },
                             icon: Icon(Icons.arrow_back, color: Colors.white),
                           ),
                           SizedBox(width: 11),
                           Text(
-                            widget.hotel.namaHotel ?? '',
+                            widget.kota.city ?? '-',
                             style: GoogleFonts.montserrat().copyWith(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 15,
+                                fontSize: 17,
                                 color: Colors.white),
                           ),
                         ],
@@ -96,7 +95,7 @@ class _hoteldetailState extends State<hoteldetail> {
                       color: Colors.white,
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage(widget.hotel.image ?? ''),
+                        image: AssetImage(widget.kota.image ?? ''),
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -135,7 +134,7 @@ class _hoteldetailState extends State<hoteldetail> {
                   Container(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      widget.hotel.namaHotel ?? '',
+                      widget.kota.hotel ?? '-',
                       style: GoogleFonts.montserrat().copyWith(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
@@ -149,7 +148,7 @@ class _hoteldetailState extends State<hoteldetail> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          widget.hotel.daerahHotel ?? '',
+                          widget.kota.subKota ?? '-',
                           style: GoogleFonts.montserrat().copyWith(
                               fontWeight: FontWeight.w300,
                               fontSize: 10,
@@ -192,7 +191,7 @@ class _hoteldetailState extends State<hoteldetail> {
               padding: EdgeInsets.only(left: 20, right: 20),
               child: Container(
                 padding:
-                    EdgeInsets.only(left: 11, right: 11, top: 8, bottom: 8),
+                EdgeInsets.only(left: 11, right: 11, top: 8, bottom: 8),
                 decoration: BoxDecoration(
                   border: Border.all(width: 1),
                   borderRadius: BorderRadius.circular(8),
@@ -350,7 +349,7 @@ class _hoteldetailState extends State<hoteldetail> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     padding:
-                        EdgeInsets.only(left: 13, right: 13, top: 8, bottom: 8),
+                    EdgeInsets.only(left: 13, right: 13, top: 8, bottom: 8),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -481,19 +480,19 @@ class _hoteldetailState extends State<hoteldetail> {
                       },
                       child: (show == true)
                           ? Text(
-                              'Open',
-                              style: GoogleFonts.montserrat().copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                  color: '4DA934'.toColor(),),
-                            )
+                        'Open',
+                        style: GoogleFonts.montserrat().copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 10,
+                          color: '4DA934'.toColor(),),
+                      )
                           : Text(
-                              'Close',
-                              style: GoogleFonts.montserrat().copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                  color: '4DA934'.toColor(),),
-                            ),
+                        'Close',
+                        style: GoogleFonts.montserrat().copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 10,
+                          color: '4DA934'.toColor(),),
+                      ),
                     ),
                   ),
                 ],
@@ -562,12 +561,12 @@ class _hoteldetailState extends State<hoteldetail> {
                   Row(
                     children: [
                       Text(
-                        NumberFormat.currency(locale: 'id', decimalDigits: 0)
-                            .format(cuan),
+                        NumberFormat.currency(locale: 'id', decimalDigits: 0, symbol: 'Rp. ',)
+                            .format(widget.kota.harga ?? 0),
                         style: GoogleFonts.poppins().copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 13,
-                            color: 'C01414'.toColor()),
+                            color: '4DA934'.toColor()),
                       ),
                       SizedBox(width: 2),
                       Text(
@@ -605,25 +604,6 @@ class _hoteldetailState extends State<hoteldetail> {
                 ),
               ),
             ),
-            // Container(
-            //   width: MediaQuery.of(context).size.width,
-            //   height: 34,
-            //   child: FlatButton(
-            //     shape: RoundedRectangleBorder(
-            //         borderRadius: BorderRadius.circular(10)),
-            //     color: 'C01414'.toColor(),
-            //     onPressed: () {
-            //       Get.to(pilihkamar());
-            //     },
-            //     child: Text(
-            //       'tombollihatkamar',
-            //       style: GoogleFonts.poppins().copyWith(
-            //           fontSize: 12,
-            //           fontWeight: FontWeight.bold,
-            //           color: Colors.white),
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),

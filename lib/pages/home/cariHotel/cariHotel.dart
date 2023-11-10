@@ -120,16 +120,14 @@ class _carihotelState extends State<carihotel> {
                         Get.to(home());
                       },
                       child: Container(
-                        width: 40,
-                        height: 40,
                         decoration: BoxDecoration(
                           color: Colors.grey,
                           borderRadius: BorderRadius.circular(50),
                         ),
-                        padding: EdgeInsets.all(5),
+                        padding: EdgeInsets.all(8),
                         child: Icon(
                           Icons.arrow_back,
-                          size: 15,
+                          size: 25,
                           color: Colors.white,
                         ),
                       ),
@@ -223,6 +221,7 @@ class _carihotelState extends State<carihotel> {
                             height: 30,
                           ),
                           title: Text(hotel.namaHotel!),
+                          trailing: Icon(Icons.arrow_forward_ios_rounded, size: 15,),
                           onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(

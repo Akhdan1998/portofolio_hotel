@@ -23,12 +23,12 @@ class _cariKotaState extends State<cariKota> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: '4DA934'.toColor(),
-        elevation: 0,
+        // elevation: 0,
         leading: IconButton(
           onPressed: () {
             Get.to(home());
           },
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back, size: 25),
         ),
         title: Container(
           decoration: BoxDecoration(
@@ -40,12 +40,11 @@ class _cariKotaState extends State<cariKota> {
             controller: kotaCari,
             cursorColor: '4DA934'.toColor(),
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.only(top: 15),
+              contentPadding: EdgeInsets.only(top: 15, left: 15),
               hintText: 'Find Your Hotel',
               hintStyle: GoogleFonts.poppins()
                   .copyWith(color: 'C4C4C4'.toColor(), fontSize: 15),
-              prefixIcon: Icon(Icons.search, color: 'C4C4C4'.toColor()),
-              // contentPadding: EdgeInsets.only(left: 20, bottom: 20),
+              suffixIcon: Icon(Icons.search, color: 'C4C4C4'.toColor()),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
@@ -69,17 +68,20 @@ class _cariKotaState extends State<cariKota> {
               itemBuilder: (context, index) {
                 final kota = kotas[index];
                 return ListTile(
-                  title: Text(kota.city!),
+                  title: Text(
+                    kota.city ?? '',
+                    style: GoogleFonts.poppins().copyWith(),
+                  ),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded, size: 20),
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            kotaDetils(kota: kota)),
+                        builder: (context) => kotaDetils(kota: kota)),
                   ),
                 );
               }),
         ),
-        ),
+      ),
       // body: SingleChildScrollView(
       //   scrollDirection: Axis.vertical,
       //   physics: ClampingScrollPhysics(),

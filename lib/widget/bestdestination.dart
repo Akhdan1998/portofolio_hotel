@@ -5,15 +5,25 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 
-class destination extends StatelessWidget {
-  int saldo = 257000;
+import '../model/destinasi_model.dart';
 
+class destination extends StatefulWidget {
+  final Destinasi? destinasi;
+
+  destination(this.destinasi);
+
+  @override
+  State<destination> createState() => _destinationState();
+}
+
+class _destinationState extends State<destination> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        height: 167,
+        height: 173,
+        color: Colors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -30,7 +40,7 @@ class destination extends StatelessWidget {
                   ),
                 ],
                 image: DecorationImage(
-                    image: AssetImage('assets/destination.png')),
+                    image: AssetImage(widget.destinasi!.imageDestinasi ?? ''), fit: BoxFit.cover),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(5),
                   topRight: Radius.circular(5),
@@ -39,8 +49,6 @@ class destination extends StatelessWidget {
             ),
             Container(
               width: 219,
-
-              // height: 66,
               decoration: BoxDecoration(
                 color: Colors.white,
                 boxShadow: [
@@ -64,16 +72,16 @@ class destination extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Marcopolo Hotel',
+                        widget.destinasi!.namaDestinasi ?? '-',
                         style: GoogleFonts.poppins().copyWith(
-                            fontSize: 8,
+                            fontSize: 10,
                             color: '323232'.toColor(),
                             fontWeight: FontWeight.bold),
                       ),
                       Row(
                         children: [
                           RatingBar.builder(
-                            itemSize: 10,
+                            itemSize: 12,
                             initialRating: 4,
                             itemCount: 4,
                             itemBuilder: (context, _) => Icon(
@@ -88,7 +96,7 @@ class destination extends StatelessWidget {
                           Text(
                             '4.0',
                             style: GoogleFonts.poppins().copyWith(
-                              fontSize: 8,
+                              fontSize: 10,
                               color: Colors.amber,
                             ),
                           )
@@ -111,7 +119,7 @@ class destination extends StatelessWidget {
                           Text(
                             'Free Cancellation',
                             style: GoogleFonts.poppins().copyWith(
-                                fontSize: 8, color: '626161'.toColor()),
+                                fontSize: 9, color: '626161'.toColor()),
                           )
                         ],
                       ),
@@ -126,7 +134,7 @@ class destination extends StatelessWidget {
                           Text(
                             'Breakfast',
                             style: GoogleFonts.poppins().copyWith(
-                                fontSize: 8, color: '626161'.toColor()),
+                                fontSize: 9, color: '626161'.toColor()),
                           )
                         ],
                       ),
@@ -141,7 +149,7 @@ class destination extends StatelessWidget {
                           Text(
                             'Wifi',
                             style: GoogleFonts.poppins().copyWith(
-                                fontSize: 8, color: '626161'.toColor()),
+                                fontSize: 9, color: '626161'.toColor()),
                           )
                         ],
                       ),

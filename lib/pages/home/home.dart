@@ -18,6 +18,7 @@ import 'package:supercharged/supercharged.dart';
 import 'package:story/story.dart';
 import 'package:story/story_image.dart';
 import 'package:badges/badges.dart' as badges;
+import '../../model/destinasi_model.dart';
 import '../../widget/destinasiwisata.dart';
 import 'cariHotel/cariHotel.dart';
 import 'cariHotel/hotelDetail.dart';
@@ -87,7 +88,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
           color: Colors.white,
         ),
         toolbarHeight: 65,
-        title: Image.asset('assets/hotelpedia.png', scale: 3.5),
+        title: Image.asset('assets/hotelpedia.png', scale: 3),
         centerTitle: true,
         actions: [
           Container(
@@ -169,12 +170,12 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                 style: GoogleFonts.poppins().copyWith(
                     fontWeight: FontWeight.bold,
                     color: '4D4B4B'.toColor(),
-                    fontSize: 12),
+                    fontSize: 14),
               ),
             ),
             SizedBox(height: 10),
             Container(
-              height: 88,
+              height: 90,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 1,
@@ -194,7 +195,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                 style: GoogleFonts.poppins().copyWith(
                     fontWeight: FontWeight.bold,
                     color: '4D4B4B'.toColor(),
-                    fontSize: 12),
+                    fontSize: 14),
               ),
             ),
             SizedBox(height: 10),
@@ -214,7 +215,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                             color: 'EEEEEE'.toColor(),
                             borderRadius: BorderRadius.circular(5),
                           ),
-                          padding: EdgeInsets.all(11),
+                          padding: EdgeInsets.all(15),
                           child: Image.asset(
                             'assets/hotel.png',
                             scale: 1.2,
@@ -226,7 +227,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                           style: GoogleFonts.poppins().copyWith(
                               fontWeight: FontWeight.w300,
                               color: '5E5E5E'.toColor(),
-                              fontSize: 12),
+                              fontSize: 13),
                         ),
                       ],
                     ),
@@ -241,7 +242,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                             color: 'EEEEEE'.toColor(),
                             borderRadius: BorderRadius.circular(5),
                           ),
-                          padding: EdgeInsets.all(11),
+                          padding: EdgeInsets.all(15),
                           child: Image.asset(
                             'assets/pesawat.png',
                             scale: 1.2,
@@ -253,7 +254,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                           style: GoogleFonts.poppins().copyWith(
                               fontWeight: FontWeight.w300,
                               color: '5E5E5E'.toColor(),
-                              fontSize: 12),
+                              fontSize: 13),
                         ),
                       ],
                     ),
@@ -268,7 +269,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                             color: 'EEEEEE'.toColor(),
                             borderRadius: BorderRadius.circular(5),
                           ),
-                          padding: EdgeInsets.all(11),
+                          padding: EdgeInsets.all(15),
                           child: Image.asset(
                             'assets/kereta.png',
                             scale: 1.2,
@@ -280,7 +281,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                           style: GoogleFonts.poppins().copyWith(
                               fontWeight: FontWeight.w300,
                               color: '5E5E5E'.toColor(),
-                              fontSize: 12),
+                              fontSize: 13),
                         ),
                       ],
                     ),
@@ -295,7 +296,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                             color: 'EEEEEE'.toColor(),
                             borderRadius: BorderRadius.circular(5),
                           ),
-                          padding: EdgeInsets.all(11),
+                          padding: EdgeInsets.all(15),
                           child: Image.asset(
                             'assets/wisata.png',
                             scale: 1.2,
@@ -307,7 +308,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                           style: GoogleFonts.poppins().copyWith(
                               fontWeight: FontWeight.w300,
                               color: '5E5E5E'.toColor(),
-                              fontSize: 12),
+                              fontSize: 13),
                         ),
                       ],
                     ),
@@ -324,7 +325,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                             color: 'EEEEEE'.toColor(),
                             borderRadius: BorderRadius.circular(5),
                           ),
-                          padding: EdgeInsets.all(11),
+                          padding: EdgeInsets.all(15),
                           child: Image.asset(
                             'assets/artikel.png',
                             scale: 1.2,
@@ -336,7 +337,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                           style: GoogleFonts.poppins().copyWith(
                               fontWeight: FontWeight.w300,
                               color: '5E5E5E'.toColor(),
-                              fontSize: 12),
+                              fontSize: 13),
                         ),
                       ],
                     ),
@@ -351,7 +352,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                             color: 'EEEEEE'.toColor(),
                             borderRadius: BorderRadius.circular(5),
                           ),
-                          padding: EdgeInsets.all(11),
+                          padding: EdgeInsets.all(15),
                           child: Image.asset(
                             'assets/media.png',
                             scale: 1.2,
@@ -363,7 +364,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                           style: GoogleFonts.poppins().copyWith(
                               fontWeight: FontWeight.w300,
                               color: '5E5E5E'.toColor(),
-                              fontSize: 12),
+                              fontSize: 13),
                         ),
                       ],
                     ),
@@ -381,7 +382,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                 style: GoogleFonts.poppins().copyWith(
                     fontWeight: FontWeight.bold,
                     color: '4D4B4B'.toColor(),
-                    fontSize: 12),
+                    fontSize: 14),
               ),
             ),
             SizedBox(height: 8),
@@ -415,7 +416,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                 style: GoogleFonts.poppins().copyWith(
                     fontWeight: FontWeight.bold,
                     color: '4D4B4B'.toColor(),
-                    fontSize: 12),
+                    fontSize: 14),
               ),
             ),
             SizedBox(height: 8),
@@ -424,10 +425,18 @@ class _homeState extends State<home> with TickerProviderStateMixin {
               child: Row(
                 children: [
                   SizedBox(width: 16),
-                  destination(),
-                  SizedBox(width: 15),
-                  destination(),
-                  SizedBox(width: 16),
+                  Row(
+                    children: allDestinasi
+                        .map(
+                          (e) => Row(
+                            children: [
+                              destination(e),
+                              SizedBox(width: 15),
+                            ],
+                          ),
+                        )
+                        .toList(),
+                  ),
                 ],
               ),
             ),

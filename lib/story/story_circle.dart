@@ -39,7 +39,7 @@ class StoryCircle extends StatelessWidget {
                   style: GoogleFonts.poppins().copyWith(
                       fontWeight: FontWeight.w300,
                       color: '4D4B4B'.toColor(),
-                      fontSize: 12),
+                      fontSize: 13),
                 ),
               ],
             ),
@@ -49,7 +49,6 @@ class StoryCircle extends StatelessWidget {
                 Container(
                   height: 65,
                   width: 65,
-                  // color: Colors.blue,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
@@ -63,7 +62,7 @@ class StoryCircle extends StatelessWidget {
                   style: GoogleFonts.poppins().copyWith(
                       fontWeight: FontWeight.w300,
                       color: '4D4B4B'.toColor(),
-                      fontSize: 12),
+                      fontSize: 13),
                 ),
               ],
             ),

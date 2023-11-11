@@ -19,8 +19,6 @@ class marcopolo extends StatefulWidget {
 }
 
 class _marcopoloState extends State<marcopolo> {
-  int saldo = 257000;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

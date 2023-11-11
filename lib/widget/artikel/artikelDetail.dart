@@ -1,11 +1,20 @@
 import 'dart:io';
+import 'package:date_format/date_format.dart';
 import 'package:http/http.dart';
+import 'package:portofolio_hotel/model/artikel_model.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class artikelDetail extends StatefulWidget {
+  final Artikel? artikel;
+
+  artikelDetail({
+    Key? key,
+    required this.artikel,
+  }) : super(key: key);
+
   @override
   State<artikelDetail> createState() => _artikelDetailState();
 }
@@ -55,10 +64,14 @@ class _artikelDetailState extends State<artikelDetail> {
                   ],
                 ),
                 Positioned(
-                    top: 100,
-                    left: 20,
-                    right: 20,
-                    child: Image.asset('assets/artik.png')),
+                  top: 100,
+                  left: 20,
+                  right: 20,
+                  child: Image.asset(
+                    widget.artikel!.image ?? '',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ],
             ),
             Container(
@@ -67,7 +80,7 @@ class _artikelDetailState extends State<artikelDetail> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Wonderful Jungle You Should Discover',
+                    widget.artikel!.judul ?? '',
                     style: GoogleFonts.poppins().copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
@@ -78,7 +91,7 @@ class _artikelDetailState extends State<artikelDetail> {
                   Row(
                     children: [
                       Text(
-                        'Akhdan Habibie',
+                        widget.artikel!.nama ?? '-',
                         style: GoogleFonts.poppins().copyWith(
                             fontSize: 11,
                             color: '919191'.toColor(),
@@ -94,7 +107,7 @@ class _artikelDetailState extends State<artikelDetail> {
                       ),
                       SizedBox(width: 6),
                       Text(
-                        '2 Weeks ago',
+                        widget.artikel!.tanggal ?? '',
                         style: GoogleFonts.poppins().copyWith(
                             fontSize: 11,
                             color: '919191'.toColor(),
@@ -155,7 +168,7 @@ class _artikelDetailState extends State<artikelDetail> {
                             color: 'E97C7C'.toColor(),
                           ),
                           label: Text(
-                            '1.459',
+                            widget.artikel!.lihat ?? '-',
                             style: GoogleFonts.poppins().copyWith(
                               fontWeight: FontWeight.bold,
                               fontSize: 10,

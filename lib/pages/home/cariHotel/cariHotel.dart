@@ -8,6 +8,7 @@ import 'package:portofolio_hotel/model/jakarta_model.dart';
 import 'package:portofolio_hotel/pages/home/cariHotel/solo.dart';
 import 'package:portofolio_hotel/pages/home/cariHotel/yogya.dart';
 import 'package:portofolio_hotel/pages/home/home.dart';
+import 'package:portofolio_hotel/pages/navigasi.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:textfield_search/textfield_search.dart';
 
@@ -117,7 +118,7 @@ class _carihotelState extends State<carihotel> {
                     left: 20,
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(home());
+                        Get.to(navigasi());
                       },
                       child: Container(
                         decoration: BoxDecoration(

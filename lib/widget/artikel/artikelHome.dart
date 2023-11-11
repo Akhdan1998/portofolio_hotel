@@ -3,10 +3,15 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:supercharged/supercharged.dart';
 
+import '../../model/artikel_model.dart';
 import 'artikel.dart';
 import 'artikelDetail.dart';
 
 class artikelHome extends StatefulWidget {
+  final Artikel? artikels;
+
+  artikelHome(this.artikels);
+
   @override
   State<artikelHome> createState() => _artikelHomeState();
 }
@@ -17,7 +22,7 @@ class _artikelHomeState extends State<artikelHome> {
     return
       GestureDetector(
         onTap: () {
-          Get.to(artikelDetail());
+          Get.to(artikelDetail(artikel: widget.artikels));
         },
         child: Container(
           color: Colors.white,
@@ -25,7 +30,7 @@ class _artikelHomeState extends State<artikelHome> {
           child: Column(
             children: [
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
@@ -36,40 +41,46 @@ class _artikelHomeState extends State<artikelHome> {
                         height: 55,
                         width: MediaQuery.of(context).size.width - 102,
                         child: Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo',
+                          widget.artikels!.deskripsi ?? '-',
                           style: GoogleFonts.poppins().copyWith(
                               fontWeight: FontWeight.w300,
                               color: '323232'.toColor(),
-                              fontSize: 11),
+                              fontSize: 13),
                         ),
                       ),
                       Row(
                         children: [
                           Text(
-                            'Yuvan Farid Aziz',
+                            widget.artikels!.nama ?? '-',
                             style: GoogleFonts.poppins().copyWith(
                                 fontWeight: FontWeight.w300,
                                 color: '919191'.toColor(),
-                                fontSize: 10),
+                                fontSize: 12),
                           ),
                           SizedBox(width: 5),
                           Icon(Icons.radio_button_on,
                               size: 7, color: '919191'.toColor()),
                           SizedBox(width: 5),
                           Text(
-                            '2 Weeks ago',
+                            widget.artikels!.tanggal ?? '-',
                             style: GoogleFonts.poppins().copyWith(
                                 fontWeight: FontWeight.w300,
                                 color: '919191'.toColor(),
-                                fontSize: 10),
+                                fontSize: 12),
                           ),
                         ],
                       ),
                     ],
                   ),
-                  Image.asset(
-                    'assets/art.png',
-                    scale: 2,
+                  Container(
+                    width: 70,
+                    height: 70,
+                    // alignment: Alignment.center,
+                    // color: Colors.cyan,
+                    child: Image.asset(
+                      widget.artikels!.image ?? '',
+                      scale: 2, fit: BoxFit.cover,
+                    ),
                   ),
                 ],
               ),

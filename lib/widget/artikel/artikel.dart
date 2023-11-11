@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portofolio_hotel/model/artikel_model.dart';
 import 'package:portofolio_hotel/widget/artikel/artikelDetail.dart';
 import 'package:supercharged/supercharged.dart';
 
 import 'artikelHome.dart';
 
 class artikel extends StatefulWidget {
+
   @override
   State<artikel> createState() => _artikelState();
 }
@@ -94,7 +96,7 @@ class _artikelState extends State<artikel> {
                         SizedBox(width: 20),
                         GestureDetector(
                           onTap: () {
-                            Get.to(artikelDetail());
+                            // Get.to(artikelDetail());
                           },
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,7 +143,7 @@ class _artikelState extends State<artikel> {
                         SizedBox(width: 15),
                         GestureDetector(
                           onTap: () {
-                            Get.to(artikelDetail());
+                            // Get.to(artikelDetail());
                           },
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -193,19 +195,19 @@ class _artikelState extends State<artikel> {
                   Divider(
                     thickness: 3,
                   ),
-                  SizedBox(height: 15),
-                  artikelHome(),
-                  SizedBox(height: 20),
-                  artikelHome(),
-                  SizedBox(height: 20),
-                  artikelHome(),
-                  SizedBox(height: 20),
-                  artikelHome(),
-                  SizedBox(height: 20),
-                  artikelHome(),
-                  SizedBox(height: 20),
-                  artikelHome(),
-                  SizedBox(height: 40),
+                  // SizedBox(height: 15),
+                  // artikelHome(),
+                  // SizedBox(height: 20),
+                  // artikelHome(),
+                  // SizedBox(height: 20),
+                  // artikelHome(),
+                  // SizedBox(height: 20),
+                  // artikelHome(),
+                  // SizedBox(height: 20),
+                  // artikelHome(),
+                  // SizedBox(height: 20),
+                  // artikelHome(),
+                  // SizedBox(height: 40),
                 ],
               ),
             ),

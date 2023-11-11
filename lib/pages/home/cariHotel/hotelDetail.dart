@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:portofolio_hotel/pages/home/cariHotel/cariHotel.dart';
+import 'package:portofolio_hotel/pages/navigasi.dart';
 import 'package:supercharged/supercharged.dart';
 
 import '../../../model/cariHotelModel.dart';
@@ -64,7 +65,7 @@ class _hoteldetailState extends State<hoteldetail> {
                         children: [
                           IconButton(
                             onPressed: () {
-                              Get.to(carihotel());
+                              Get.to(navigasi());
                             },
                             icon: Icon(Icons.arrow_back, color: Colors.white),
                           ),

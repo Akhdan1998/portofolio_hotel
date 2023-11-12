@@ -27,9 +27,6 @@ import 'cariHotel/cariHotel.dart';
 import 'cariHotel/hotelDetail.dart';
 import 'cariKota/cariKota.dart';
 import 'dart:io';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:simple_barcode_scanner/enum.dart';
-import 'package:simple_barcode_scanner/simple_barcode_scanner.dart';
 
 class home extends StatefulWidget {
   @override
@@ -113,19 +110,14 @@ class _homeState extends State<home> with TickerProviderStateMixin {
         title: Image.asset('assets/hotelpedia.png', scale: 3),
         centerTitle: true,
         actions: [
-          Container(
-            padding: (Platform.isIOS)
-                ? EdgeInsets.only(right: 14, top: 18)
-                : EdgeInsets.only(right: 7, top: 22),
-            child: GestureDetector(
-              onTap: () {},
-              child: Badge(
-                label: Text('3'),
-                child: Icon(
-                  Icons.notifications,
-                  size: (Platform.isIOS) ? 25 : 20,
-                  color: 'FFFFFF'.toColor(),
-                ),
+          IconButton(
+            onPressed: () {},
+            icon: Badge(
+              label: Text('3'),
+              child: Icon(
+                Icons.notifications,
+                size: (Platform.isIOS) ? 25 : 20,
+                color: 'FFFFFF'.toColor(),
               ),
             ),
           ),

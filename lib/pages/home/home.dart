@@ -8,7 +8,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:portofolio_hotel/model/artikel_model.dart';
 import 'package:portofolio_hotel/model/cariHotelModel.dart';
-import 'package:portofolio_hotel/pages/home/qrcode.dart';
 import 'package:portofolio_hotel/pages/reservasi/hotel.dart';
 import 'package:portofolio_hotel/story/story_circle.dart';
 import 'package:portofolio_hotel/story/story_model.dart';

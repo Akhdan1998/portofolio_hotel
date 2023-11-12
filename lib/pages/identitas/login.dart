@@ -1,5 +1,3 @@
-// import 'package:flip_card/flip_card.dart';
-// import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_flip_card/controllers/flip_card_controllers.dart';
 import 'package:flutter_flip_card/flipcard/flip_card.dart';
@@ -12,6 +10,7 @@ import 'package:portofolio_hotel/pages/home/home.dart';
 import 'package:portofolio_hotel/pages/navigasi.dart';
 import 'package:portofolio_hotel/pages/identitas/signup.dart';
 import 'package:supercharged/supercharged.dart';
+import 'dart:io';
 
 // import 'pages/identitas/signup.dart';
 
@@ -59,7 +58,7 @@ class _loginState extends State<login> {
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 80),
+                  SizedBox(height: (Platform.isIOS) ? 80 : 70),
                   Container(
                     padding: EdgeInsets.only(left: 30, right: 30),
                     child: Image.asset(
@@ -67,7 +66,7 @@ class _loginState extends State<login> {
                       color: '4DA934'.toColor(),
                     ),
                   ),
-                  SizedBox(height: 80),
+                  SizedBox(height: (Platform.isIOS) ? 80 : 30),
                   FlipCard(
                     rotateSide: RotateSide.bottom,
                     controller: _controllerFlip,
@@ -87,13 +86,13 @@ class _loginState extends State<login> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               // mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Text(
-                                  'Email Address',
-                                  style: GoogleFonts.poppins().copyWith(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 15,
-                                      color: '818181'.toColor()),
-                                ),
+                                // (Platform.isIOS) ? Text(
+                                //   'Email Address',
+                                //   style: GoogleFonts.poppins().copyWith(
+                                //       fontWeight: FontWeight.w300,
+                                //       fontSize: 15,
+                                //       color: '818181'.toColor()),
+                                // ) : Container(),
                                 SizedBox(height: 5),
                                 TextFormField(
                                   validator: (value) {
@@ -106,6 +105,8 @@ class _loginState extends State<login> {
                                   keyboardType: TextInputType.emailAddress,
                                   cursorColor: '4DA934'.toColor(),
                                   decoration: InputDecoration(
+                                    label: Text('Email Adrress'),
+                                    labelStyle: GoogleFonts.poppins().copyWith(color: '4DA934'.toColor(),),
                                     focusedBorder: OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(5)),
@@ -115,14 +116,14 @@ class _loginState extends State<login> {
                                     border: OutlineInputBorder(),
                                   ),
                                 ),
-                                SizedBox(height: 10),
-                                Text(
-                                  'Password',
-                                  style: GoogleFonts.poppins().copyWith(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 15,
-                                      color: '818181'.toColor()),
-                                ),
+                                SizedBox(height: 20),
+                                // (Platform.isIOS) ? Text(
+                                //   'Password',
+                                //   style: GoogleFonts.poppins().copyWith(
+                                //       fontWeight: FontWeight.w300,
+                                //       fontSize: 15,
+                                //       color: '818181'.toColor()),
+                                // ) : Container(),
                                 SizedBox(height: 5),
                                 TextFormField(
                                   validator: (value) {
@@ -135,6 +136,8 @@ class _loginState extends State<login> {
                                   obscureText: _obsecureTextSignIn,
                                   cursorColor: '4DA934'.toColor(),
                                   decoration: InputDecoration(
+                                    label: Text('Password'),
+                                    labelStyle: GoogleFonts.poppins().copyWith(color: '4DA934'.toColor(),),
                                     focusedBorder: OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(5)),
@@ -186,7 +189,7 @@ class _loginState extends State<login> {
                               )
                             ],
                           ),
-                          SizedBox(height: 90),
+                          SizedBox(height: (Platform.isIOS) ? 90 : 75),
                           Container(
                             padding: EdgeInsets.only(left: 30, right: 30),
                             child: Column(
@@ -639,8 +642,8 @@ class _loginState extends State<login> {
       bottomNavigationBar: GestureDetector(
         onTap: () async {},
         child: Container(
-          height: 110,
-          padding: EdgeInsets.only(left: 30, right: 30, top: 15, bottom: 40),
+          height: (Platform.isIOS) ? 110 : 75,
+          padding: (Platform.isIOS) ?  EdgeInsets.only(left: 30, right: 30, top: 15, bottom: 40) : EdgeInsets.only(left: 30, right: 30, top: 15, bottom:15),
           child: Container(
             // alignment: Alignment.center,
             width: MediaQuery.of(context).size.width,

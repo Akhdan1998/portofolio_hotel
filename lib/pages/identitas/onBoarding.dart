@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,14 +21,16 @@ class _onBoardingState extends State<onBoarding> {
     return Scaffold(
       body: Stack(
         fit: StackFit.loose,
-        alignment: Alignment.center,
+        // alignment: Alignment.center,
         children: [
-          Positioned(
-            height: MediaQuery.of(context).size.height,
+          (Platform.isIOS) ? Positioned(
+          height: MediaQuery.of(context).size.height,
+            child: Image.asset('assets/onboarding.png'),
+          ) : Positioned(
             child: Image.asset('assets/onboarding.png'),
           ),
           Container(
-            padding: EdgeInsets.only(left: 30, right: 30, top: 600),
+            padding: (Platform.isIOS) ? EdgeInsets.only(left: 30, right: 30, top: 600) : EdgeInsets.only(left: 30, right: 30, top: 400),
             child: Column(
               children: [
                 Image.asset('assets/hotelpedia.png'),

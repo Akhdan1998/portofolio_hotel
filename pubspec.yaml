@@ -49,7 +49,9 @@ dependencies:
   easy_search_bar: ^2.5.0
   textfield_search: ^0.10.0
   google_maps_flutter: ^2.5.0
-#  flip_card: ^0.7.0
+  qr_code_scanner: ^1.0.1
+  simple_barcode_scanner: ^0.0.8
+  flutter_barcode_scanner: ^2.0.0
   flutter_flip_card: ^0.0.4
 
   # The following adds the Cupertino Icons font to your application.

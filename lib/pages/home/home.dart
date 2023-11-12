@@ -1,11 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:portofolio_hotel/model/artikel_model.dart';
 import 'package:portofolio_hotel/model/cariHotelModel.dart';
+import 'package:portofolio_hotel/pages/home/qrcode.dart';
 import 'package:portofolio_hotel/pages/reservasi/hotel.dart';
 import 'package:portofolio_hotel/story/story_circle.dart';
 import 'package:portofolio_hotel/story/story_model.dart';
@@ -24,6 +27,10 @@ import '../../widget/destinasiwisata.dart';
 import 'cariHotel/cariHotel.dart';
 import 'cariHotel/hotelDetail.dart';
 import 'cariKota/cariKota.dart';
+import 'dart:io';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:simple_barcode_scanner/enum.dart';
+import 'package:simple_barcode_scanner/simple_barcode_scanner.dart';
 
 class home extends StatefulWidget {
   @override
@@ -60,6 +67,21 @@ class _homeState extends State<home> with TickerProviderStateMixin {
     );
   }
 
+  Future<void> scanQr() async {
+    String? qrCodeScanRes;
+    try {
+      qrCodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+        '#4DA934',
+        'Cancel',
+        true,
+        ScanMode.QR,
+      );
+      debugPrint(qrCodeScanRes);
+    } on PlatformException {
+      qrCodeScanRes = 'Failed to get platform version.';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,21 +115,28 @@ class _homeState extends State<home> with TickerProviderStateMixin {
         centerTitle: true,
         actions: [
           Container(
-            padding: EdgeInsets.only(right: 14, top: 18),
+            padding: (Platform.isIOS)
+                ? EdgeInsets.only(right: 14, top: 18)
+                : EdgeInsets.only(right: 7, top: 22),
             child: GestureDetector(
               onTap: () {},
               child: Badge(
                 label: Text('3'),
                 child: Icon(
                   Icons.notifications,
-                  size: 25,
+                  size: (Platform.isIOS) ? 25 : 20,
                   color: 'FFFFFF'.toColor(),
                 ),
-                // badgeColor: '79DD2A'.toColor(),
-                // toAnimate: false,
               ),
             ),
           ),
+          IconButton(
+            onPressed: scanQr,
+            icon: Icon(
+              Icons.qr_code_scanner,
+              size: (Platform.isIOS) ? 25 : 20,
+            ),
+          )
         ],
       ),
       body: SingleChildScrollView(
@@ -394,14 +423,12 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                   SizedBox(width: 16),
                   Row(
                     children: allHotels
-                        .map(
-                          (e) => Row(
-                            children: [
-                              marcopolo(e),
-                              SizedBox(width: 16),
-                            ],
-                          )
-                        )
+                        .map((e) => Row(
+                              children: [
+                                marcopolo(e),
+                                SizedBox(width: 16),
+                              ],
+                            ))
                         .toList(),
                   ),
                   // SizedBox(width: 16),
@@ -461,7 +488,6 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                       children: [
                         artikelHome(e),
                         SizedBox(height: 8),
-
                       ],
                     ),
                   )

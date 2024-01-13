@@ -521,7 +521,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
         child: Stack(
           children: [
             Positioned(
-              top: 60,
+              top: (Platform.isIOS) ? 60 : 40,
               child: Container(
                 padding: EdgeInsets.only(left: 15, right: 15),
                 width: MediaQuery.of(context).size.width,
@@ -585,10 +585,12 @@ class _homeState extends State<home> with TickerProviderStateMixin {
               ),
             ),
             Positioned(
-              top: 135,
+              top: (Platform.isIOS) ? 135 : 115,
               child: Container(
                 padding: EdgeInsets.only(left: 15, right: 15),
-                width: MediaQuery.of(context).size.width - 115,
+                width: (Platform.isIOS)
+                    ? MediaQuery.of(context).size.width - 115
+                    : MediaQuery.of(context).size.width - 70,
                 child: Text(
                   'Flutter Developer with app/web development experience, assisting in the design process and application maintenance with a focus on improving efficient features, and looking for bugs in the company\'s apps/web.',
                   style: GoogleFonts.poppins().copyWith(
@@ -600,7 +602,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
               ),
             ),
             Positioned(
-              top: 255,
+              top: (Platform.isIOS) ? 255 : 235,
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 child: Divider(
@@ -609,9 +611,11 @@ class _homeState extends State<home> with TickerProviderStateMixin {
               ),
             ),
             Positioned(
-              top: 264,
+              top: (Platform.isIOS) ? 264 : 244,
               child: Container(
-                width: MediaQuery.of(context).size.width - 125,
+                width: (Platform.isIOS)
+                    ? MediaQuery.of(context).size.width - 125
+                    : MediaQuery.of(context).size.width - 56,
                 height: MediaQuery.of(context).size.height,
                 color: Colors.white,
                 child: ListView.builder(

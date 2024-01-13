@@ -457,17 +457,12 @@ class _hoteldetailState extends State<hoteldetail> {
                       : Container(
                     // height: 96,
                     alignment: Alignment.centerLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Senectus id et euismod pharetra nunc, sit tincidunt ridiculus in. Hendrerit in mi arcu nunc tortor, tellus, eget lectus in. Duis arcu vulputate tortor sit cras posuere. Habitasse et volutpat vitae ultrices tempus urna. Aliquam fringilla scelerisque mauris erat eget leo turpis risus. Fringilla mauris tortor a massa.',
-                          style: GoogleFonts.montserrat().copyWith(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w300,
-                              color: '323232'.toColor()),
-                        ),
-                      ],
+                    child: Text(
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Senectus id et euismod pharetra nunc, sit tincidunt ridiculus in. Hendrerit in mi arcu nunc tortor, tellus, eget lectus in. Duis arcu vulputate tortor sit cras posuere. Habitasse et volutpat vitae ultrices tempus urna. Aliquam fringilla scelerisque mauris erat eget leo turpis risus. Fringilla mauris tortor a massa.',
+                      style: GoogleFonts.montserrat().copyWith(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w300,
+                          color: '323232'.toColor()),
                     ),
                   ),
                   SizedBox(height: 5),
